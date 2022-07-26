@@ -1,37 +1,124 @@
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 main-heading">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-xl-3 col-2">
-              <div class="left">
-                <h2> </h2>
+  <div class="container header-container mob p-0">
+    <div class="row">
+      <div class="col-12 flexible-header">
+        <div class="first-sec">
+          <!-- <span class="logo mb-5 mob"> <img src="assets/logo.png" class="img-fluid" /> OMGIVA</span>
+                 -->
+          <!-- <button>Menu</button> -->
+          <div class="topnav">
+            <!-- <a href="#home" class="active">Logo</a> -->
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </a>
+            <div id="mySidenav" class="sidenav">
+              <div class="row">
+                <div class="col-4">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                </div>
+                <div class="col-8 closebtnimg">
+                  <a href="index.html" class="logo-anchor"> <img src="assets/logo.png" class="img-fluid " /> <span
+                      class="omgiva-text"> OMGIVA</span></a>
+                </div>
               </div>
+              <a href="home.html" class="active"> <img src="assets/icon_home.svg" class="tab-img" /><span>Home</span> <i
+                  class="fa fa-angle-right"></i> </a>
+              <a href="chat.html"> <img src="assets/icon_message.svg" class="tab-img" /><span>Chat</span> <i
+                  class="fa fa-angle-right "></i></a>
+              <a href="directory-grid.html"> <img src="assets/icon_contact.svg" class="tab-img" /><span>Directory</span>
+                <i class="fa fa-angle-right "></i></a>
+              <a href="group.html"> <img src="assets/icon_multiuser.svg" class="tab-img" /><span>Group</span> <i
+                  class="fa fa-angle-right "></i></a>
+              <hr>
+              <a href="notification-setting.html"> <span>Notification Setting</span> <i class="fa fa-angle-right"></i>
+              </a>
+              <a href="about.html"> <span>About</span><i class="fa fa-angle-right"></i> </a>
+              <a href="terms-of-service.html"> <span>Terms of Service</span><i class="fa fa-angle-right "></i>
+              </a>
+              <a href="index.html"> <span>Logout</span> <i class="fa fa-angle-right "></i></a>
             </div>
-            <div class="col-lg-6 col-md-6 col-xl-6 col-8" style="align-items: center;
-            display: flex; justify-content: center;">
-              <div class="middle">
-                <h1> IOT DASHBOARD </h1>
-              </div>
+
+          </div>
+        </div>
+        <div class="tab-icons-holder second-sec">
+          <a href="index.html" class="logo-anchor-1"> <span class="mob-logo-home"> <img src="assets/logo.png"
+                class="img-fluid" /> <span class="omgiva-text"> OMGIVA </span> </span></a>
+
+        </div>
+        <div class="third-sec">
+          <!-- <div class="search-div">
+                    <input class="form-control search-input" placeholder="search"> <i class="fa fa-search"></i>
+                </div> -->
+          <div>
+            <div class="dropdown">
+              <button class="dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img class="pro-icon" src="assets/profile-image.png"> </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="profile-edit.html">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="notification-setting.html">Notification Setting</a></li>
+                <li><a class="dropdown-item" href="about.html">About </a></li>
+                <li><a class="dropdown-item" href="terms-of-service.html">Terms of Service </a></li>
+                <li><a class="dropdown-item" href="index.html">Logout</a></li>
+              </ul>
             </div>
-            <div class="col-lg-3 col-md-3 col-xl-3 col-2" style=" padding: 0;">
-              <div class="right">
-                <!-- <i class="fas fa-expand" >  f0b2</i> -->
-                <h1 class="web">  <span
-                    class="name-heading" [matMenuTriggerFor]="menu"> <img class="nav-profile-icon" src="assets/profile/male.png">
-                  </span></h1>
-                  <h1 class="mobile">  <span [matMenuTriggerFor]="menu"> <img class="nav-profile-icon"  src="assets/profile/male.png"> 
-                  </span></h1>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item class="page-redirect" routerLinkActive="active" routerLink="/dashboard/home/profile"> <h4 class="sidemenu-dropdown"> <img src="assets/profile/male.png"  class="nav-profile-icon-small"> Hi, {{userEmail}} </h4></button>
-                  <button mat-menu-item (click)="logout()"> <h4 class="sidemenu-dropdown">  <i
-                    class="fas fa-sign-out-alt"  style="margin-right: 1em;"></i> Logout </h4></button>
-                </mat-menu>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+  <div class="container header-container web">
+    <div class="row ">
+      <div class="col-12 flexible-header">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-xl-4 col-sm-3 col-3">
+            <div class="first-sec">
+              <span class="logo web logo-home-pos"> <a href="index.html" class="logo-anchor"> <img src="assets/logo.png"
+                    class="img-fluid" /> <span class="omgiva-text"> OMGIVA </span> </a></span>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5 col-xl-4 col-sm-5 col-5">
+            <div class="tab-icons-holder second-sec">
+              <a href="home.html" class="active"> <img src="assets/icon_home.svg" class="tab-img" />
+                <h1 class="border"></h1>
+              </a>
+              <a href="chat.html" class="active"> <img src="assets/icon_message.svg" class="tab-img" /> </a>
+              <a href="directory-grid.html" class="active"> <img src="assets/icon_contact.svg" class="tab-img" /> </a>
+              <a href="group.html" class="active"> <img src="assets/icon_multiuser.svg" class="tab-img" /> </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-xl-4 col-sm-3 col-3">
+            <div class="third-sec">
+              <div class="search-div">
+                <input class="form-control search-input-nav" onkeydown="charCount()" placeholder="search"> <i
+                  class="fa fa-search"></i>
+              </div>
+              <div class="profile-div">
+                <div class="dropdown">
+                  <button class="dropdown dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="pro-icon" src="assets/profile-image.png"> <i class="fa-solid fa-angle-down down-icon"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="profile-edit.html">Edit Profile</a></li>
+                    <li><a class="dropdown-item" href="notification-setting.html">Notification Setting</a></li>
+                    <li><a class="dropdown-item" href="about.html">About </a></li>
+                    <li><a class="dropdown-item" href="terms-of-service.html">Terms of Service </a></li>
+                    <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                  </ul>
+                </div>
   
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+      </div>
+    </div>
+  
+  </div> 

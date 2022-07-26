@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="vuesax_bold_note-text" data-name="vuesax/bold/note-text" transform="translate(-748 -316)">
+    <g id="note-text" transform="translate(748 316)">
+      <path id="Vector" d="M0,0H34V34H0Z" fill="none" opacity="0"/>
+      <g id="Group" transform="translate(4.25 1.771)">
+        <path id="Vector-2" data-name="Vector" d="M2.125,3.188V1.063A1.07,1.07,0,0,0,1.063,0,1.07,1.07,0,0,0,0,1.063v2.21a8.492,8.492,0,0,1,1.063-.085Z" transform="translate(6.021)" fill="#707070"/>
+        <path id="Vector-3" data-name="Vector" d="M2.125,3.273V1.063A1.07,1.07,0,0,0,1.063,0,1.07,1.07,0,0,0,0,1.063V3.188H1.063A8.492,8.492,0,0,1,2.125,3.273Z" transform="translate(17.354)" fill="#707070"/>
+        <path id="Vector-4" data-name="Vector" d="M19.479.085v2.04a1.063,1.063,0,0,1-2.125,0V0H8.146V2.125a1.062,1.062,0,1,1-2.125,0V.085C1.842.467,0,3.159,0,7.083V19.125c0,4.25,2.125,7.083,7.083,7.083H18.417c4.958,0,7.083-2.833,7.083-7.083V7.083C25.5,3.159,23.658.467,19.479.085ZM12.75,18.771H7.083a1.063,1.063,0,0,1,0-2.125H12.75a1.063,1.063,0,0,1,0,2.125Zm5.667-7.083H7.083a1.063,1.063,0,0,1,0-2.125H18.417a1.063,1.063,0,0,1,0,2.125Z" transform="translate(0 3.188)" fill="#707070"/>
+      </g>
+    </g>
+  </g>
+</svg>

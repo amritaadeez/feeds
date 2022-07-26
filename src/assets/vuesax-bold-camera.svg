@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="vuesax_bold_camera" data-name="vuesax/bold/camera" transform="translate(-364 -316)">
+    <g id="camera" transform="translate(364 316)">
+      <path id="Vector" d="M14.334,3.642a1.5,1.5,0,0,1-1.319-.81l-.655-1.32A3,3,0,0,0,9.922,0H7.839A3,3,0,0,0,5.392,1.512l-.655,1.32a1.5,1.5,0,0,1-1.319.81A3.416,3.416,0,0,0,.007,7.275L.48,14.8A3.3,3.3,0,0,0,4.11,18.211h9.533A3.309,3.309,0,0,0,17.272,14.8l.473-7.521A3.416,3.416,0,0,0,14.334,3.642ZM7.512,4.78h2.729a.683.683,0,0,1,0,1.366H7.512a.683.683,0,0,1,0-1.366Zm1.364,9.9A3.078,3.078,0,1,1,11.951,11.6,3.078,3.078,0,0,1,8.876,14.678Z" transform="translate(2.124 1.894)" fill="#fff"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0H22V22H0Z" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

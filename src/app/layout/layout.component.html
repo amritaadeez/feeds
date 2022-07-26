@@ -1,6 +1,6 @@
 <div class="overview" style="margin: 0;">
    
- 
+<!-- 
     <div class="sidebarmargin web" *ngIf="!showFiller" [ngClass]="{
       'sidebarmargin': !showFiller
     }" style="
@@ -27,8 +27,8 @@
        
       </div>
    
-    </div>
-    <mat-drawer-container class="example-container" autosize [ngClass]="{
+    </div> 
+     <mat-drawer-container class="example-container" autosize [ngClass]="{
         'padding-left': !showFiller}">
         <button type="button" class="web " mat-icon-button (click)="draw.toggle()"
         (click)="toggles()" >
@@ -66,9 +66,11 @@
   
       <router-outlet></router-outlet>
   
-    </mat-drawer-container>
+    </mat-drawer-container>  -->
 
   
-    <app-sidebar class="sidebar mobile"></app-sidebar>
+    <!-- <app-sidebar class="sidebar mobile"></app-sidebar> -->
+    <app-navbar ></app-navbar>
+    <router-outlet></router-outlet>
   </div>
   

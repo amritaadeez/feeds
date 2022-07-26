@@ -15,9 +15,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AnalyticsComponent } from './analytics/analytics.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ResetPasswordComponent,
     LayoutComponent,
     PageNotFoundComponent,
-    AnalyticsComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +35,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     MatButtonModule,
     MatMenuModule,
-    NgxChartsModule,
     MatSidenavModule,
     MatTooltipModule,
     Ng2SearchPipeModule,

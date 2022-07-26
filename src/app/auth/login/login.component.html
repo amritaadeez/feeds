@@ -1,61 +1,59 @@
-<div class="form-container">
-  <div class="row form-form">
+<section>
+  <div class="d-lg-flex half">
 
-    <div class="col-12 col-xl-6 col-sm-12 col-md-12  col-lg-6">
-      <div class="form-form">
-        <div class="form-form-wrap">
-          <div class="form-container">
-            <div class="form-content"> 
-              <h1>Log In to <a ><span class="brand-name">IOT Dashboard</span></a></h1>
-              <p class="signup-link">&nbsp;</p>
-              <form class="text-left ng-untouched ng-pristine ng-invalid"  role="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
-                <div class="form">
-                  <div id="Email Id-field" class="field-wrapper input"><i class="fas fa-at"></i><input id="Email Id" name="Email Id" type="text" placeholder="Email Id"
-                    formControlName="emailId" class="form-control" required
-              
-                      [ngClass]="{ 'is-invalid': submitted && loginGetter.emailId.errors }" />
-                    <div *ngIf="submitted && loginGetter.emailId.errors" class="invalid-feedback">
-                      <div *ngIf="loginGetter.emailId.errors.required"> Email ID is required </div>
-                      <div *ngIf="loginGetter.emailId.errors.pattern"> Invalid Email </div>
-                    </div>
-                  </div>
-                  <div id="password-field" class="field-wrapper input mb-2">
-                    <i class="fas fa-lock"></i><input placeholder="Password" formControlName="password"
-                      class="form-control ng-untouched ng-pristine ng-invalid" [type]="password"  required
-                      [ngClass]="{ 'is-invalid': submitted && loginGetter.password.errors }" />
-                      <span (click)="toggleFieldTextType()" title="Show Password" class="eye-icon"  *ngIf="!fieldTextType"> 
-                        <i class="fa fa-eye" type="button"></i>
-                       </span>
-                       <span (click)="toggleFieldTextType()"  title="Hide Password" class="eye-icon"  *ngIf="fieldTextType"> 
-                        <i class="fa fa-eye-slash"  type="button"></i>
-                       </span>
-                    <div *ngIf="submitted && loginGetter.password.errors" class="invalid-feedback">
-                      <div *ngIf="loginGetter.password.errors.required"> Please Enter Password </div>
-                    </div>
-                      <div class="field-wrapper"><a routerLink="/forgot-password" class="forgot-pass-link">Forgot Password?</a></div>
-                  </div>
-                  <div class="d-sm-flex justify-content-between">
-                    
-                    <div class="field-wrapper">
-                      <button type="submit" class="btn login-button" *ngIf="spinner"  [disabled]="spinner || loginForm.invalid"> Log In  <i class=" fas fa-spin fa-spinner"></i></button>
-                      <button type="submit" class="btn login-button" *ngIf="!spinner ">Log In</button>
-                    </div>
-                  </div>
-                  <div class="field-wrapper"><p  class="register-link">Don't have an Account? <a routerLink="/signup" class="register-link-color"> Register Here </a></p></div>
+    <div class="bg order-1 order-md-2 mob-pad-top">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-11 col-lg-10 col-xl-10 col-md-8 mob-hero-img" >
+            <a href="index.html"><span class="logo mob"> <img src="assets/logo.png" class="img-fluid" /> <span class="mob-logo-text"> OMGIVA </span></span></a>
+            <img src="assets/login_bg.svg" class="img-fluid hgt-img mob-img" alt="Sample image">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="contents order-2 order-md-1">
+      <div class="container">
+        <div class="row  justify-content-center">
+
+          <div class="col-11 col-lg-10 col-xl-10 col-md-8 mob-pad-top2">
+           <a href="index.html"><span class="logo mb-5 web"> <img src="assets/logo.png" class="img-fluid" /> OMGIVA</span> </a> 
+            <h3 class="login-head">Log in to Omgiva</h3>
+            <p class="mb-4 sub-heading">Lorem Ipsum is simply dummy text of the printing and <br class="web"> typesetting industry.</p>
+            <form class="text-left ng-untouched ng-pristine ng-invalid" role="form" [formGroup]="loginForm"
+            (ngSubmit)="login(loginForm.value)">
+              <div class="form-outline mb-3">
+                <label class="form-label" for="form3Example3">Email address</label>
+                <input type="email" id="form3Example3" formControlName="emailId" class="form-control input-auth" placeholder="Enter your email here" required [ngClass]="{ 'is-invalid': submitted && loginGetter.emailId.errors }"/>
+                <div *ngIf="submitted && loginGetter.emailId.errors" class="invalid-feedback">
+                  <div *ngIf="loginGetter.emailId.errors.required"> Email is required </div>
+                  <div *ngIf="loginGetter.emailId.errors.pattern"> Invalid Email  </div>
                 </div>
-              </form>
-           
-            </div>
+              </div>
+
+
+              <div class="form-outline mb-1">
+                <label class="form-label" for="form3Example4">Password</label>
+                <input type="password"  formControlName="password" id="form3Example4" class="form-control input-auth"
+                  placeholder="Enter your password here" [ngClass]="{ 'is-invalid': submitted && loginGetter.password.errors }"/>
+                  <div *ngIf="submitted && loginGetter.password.errors" class="invalid-feedback">
+                    <div *ngIf="loginGetter.password.errors.required"> Password is required </div>
+                  </div>
+              </div>
+              <div class="d-flex justify-content-end">
+
+                <a routerLink="/forgot-password">Forgot password?</a>
+              </div>
+              <div class=" button-div d-grid text-center text-lg-start mt-4">
+               <a href="home.html" class="login-anchor"> 
+                <button type="submit" class="btn login-btn btn-block" >  Login</button> 
+              </a> 
+                <p class="login-help text-center mt-2 mb-2"><a >Need Help?</a></p>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-6  form-image-col">
-        <div class="form-image">
-            <img src="assets/iot_logo-1.png" alt="">
-        </div>
-    </div>
-
   </div>
-
-</div>
+</section>
