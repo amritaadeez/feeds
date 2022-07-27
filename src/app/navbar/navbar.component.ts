@@ -23,7 +23,13 @@ export class NavbarComponent implements OnInit {
     this.userId = localStorage.getItem("id");
   }
 
+ openNav() {
+    document.getElementById("mySidenav").style.width = "320px";
+  }
 
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
   
   logout() {
    this.router.navigate(['/'])
