@@ -1,23 +1,78 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { ProfileComponent } from './profile/profile.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {
+  DashboardRoutingModule
+} from './dashboard-routing.module';
+import {
+  ProfileComponent
+} from './profile/profile.component';
+import {
+  ResetPasswordComponent
+} from './reset-password/reset-password.component';
 
-import { NavbarComponent } from '../navbar/navbar.component';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { LayoutComponent } from '../layout/layout.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  NavbarComponent
+} from '../navbar/navbar.component';
+import {
+  SidebarComponent
+} from '../sidebar/sidebar.component';
+import {
+  LayoutComponent
+} from '../layout/layout.component';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import {
+  MatButtonModule
+} from '@angular/material/button';
+import {
+  MatMenuModule
+} from '@angular/material/menu';
+import {
+  MatSidenavModule
+} from '@angular/material/sidenav';
+import {
+  MatTooltipModule
+} from '@angular/material/tooltip';
+import {
+  PageNotFoundComponent
+} from './page-not-found/page-not-found.component';
+import {
+  MatTabsModule
+} from '@angular/material/tabs';
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {
+  Ng2SearchPipeModule
+} from 'ng2-search-filter';
+import {
+  ChatScreenComponent
+} from './chat-screen/chat-screen.component';
+import {
+  YourContributionComponent
+} from './your-contribution/your-contribution.component';
+import {
+  DirectoryGridComponent
+} from './directory-grid/directory-grid.component';
+import {
+  GroupComponent
+} from './group/group.component';
+import {
+  NotificationSettingComponent
+} from './notification-setting/notification-setting.component';
+import {
+  AboutComponent
+} from './about/about.component';
+import {
+  TermsConditionComponent
+} from './terms-condition/terms-condition.component';
+import { DirectoryProfileComponent } from './directory-profile/directory-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +82,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ResetPasswordComponent,
     LayoutComponent,
     PageNotFoundComponent,
+    ChatScreenComponent,
+    YourContributionComponent,
+    DirectoryGridComponent,
+    GroupComponent,
+    NotificationSettingComponent,
+    AboutComponent,
+    TermsConditionComponent,
+    DirectoryProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -41,4 +104,4 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatTabsModule
   ]
 })
-export class DashboardModule { }
+export class DashboardModule {}

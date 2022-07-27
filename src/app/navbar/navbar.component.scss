@@ -28,11 +28,22 @@
 }
 
 .border {
-  height: 0.25em;
-  margin: 1em 0.5em;
-  background-color: #2565AF;
-  border-radius: 10px;
+  background-color: transparent;
+  display: none;
 }
+
+.active {
+  .border {
+    height: 0.25em;
+    margin: 1em 0.5em;
+    background-color: #2565AF;
+    border-radius: 10px;
+    display: block;
+  }
+  
+} 
+
+
 
 .third-sec {
   display: flex;

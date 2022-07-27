@@ -1,5 +1,7 @@
 
-
+body {
+    overflow-x: hidden;
+}
 
 .table-bordered>:not(caption)>*>* {
     border-width: 0px !important;
