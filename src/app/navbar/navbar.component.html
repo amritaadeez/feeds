@@ -19,7 +19,7 @@
                   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
                 </div>
                 <div class="col-8 closebtnimg">
-                  <a href="index.html" class="logo-anchor"> <img src="assets/logo.png" class="img-fluid " /> <span
+                  <a  routerLink="/" class="logo-anchor"> <img src="assets/logo.png" class="img-fluid " /> <span
                       class="omgiva-text"> OMGIVA</span></a>
                 </div>
               </div>
@@ -37,13 +37,13 @@
               <a href="about.html"> <span>About</span><i class="fa fa-angle-right"></i> </a>
               <a href="terms-of-service.html"> <span>Terms of Service</span><i class="fa fa-angle-right "></i>
               </a>
-              <a href="index.html"> <span>Logout</span> <i class="fa fa-angle-right "></i></a>
+              <a (click)="logout()"> <span>Logout</span> <i class="fa fa-angle-right "></i></a>
             </div>
 
           </div>
         </div>
         <div class="tab-icons-holder second-sec">
-          <a href="index.html" class="logo-anchor-1"> <span class="mob-logo-home"> <img src="assets/logo.png"
+          <a  routerLink="/" class="logo-anchor-1"> <span class="mob-logo-home"> <img src="assets/logo.png"
                 class="img-fluid" /> <span class="omgiva-text"> OMGIVA </span> </span></a>
 
         </div>
@@ -61,7 +61,7 @@
                 <li><a class="dropdown-item" routerLink="/dashboard/notification">Notification Setting</a></li>
                 <li><a class="dropdown-item">About </a></li>
                 <li><a class="dropdown-item" >Terms of Service </a></li>
-                <li><a class="dropdown-item">Logout</a></li>
+                <li (click)="logout()"><a   class="dropdown-item">Logout</a></li>
               </ul>
             </div>
 
@@ -76,7 +76,7 @@
         <div class="row">
           <div class="col-lg-3 col-md-3 col-xl-4 col-sm-3 col-3">
             <div class="first-sec">
-              <span class="logo web logo-home-pos"> <a href="index.html" class="logo-anchor"> <img src="assets/logo.png"
+              <span class="logo web logo-home-pos"> <a  routerLink="/" class="logo-anchor"> <img src="assets/logo.png"
                     class="img-fluid" /> <span class="omgiva-text"> OMGIVA </span> </a></span>
             </div>
           </div>
@@ -96,7 +96,7 @@
           <div class="col-lg-4 col-md-3 col-xl-4 col-sm-3 col-3">
             <div class="third-sec">
               <div class="search-div">
-                <input class="form-control search-input-nav" onkeydown="charCount()" placeholder="search"> <i
+                <input class="form-control search-input-nav" (keydown)="charCount($event.target.value)" placeholder="search"> <i
                   class="fa fa-search"></i>
               </div>
               <div class="profile-div">
@@ -110,7 +110,7 @@
                     <li><a class="dropdown-item" routerLink="/dashboard/notification">Notification Setting</a></li>
                     <li><a class="dropdown-item" >About </a></li>
                     <li><a class="dropdown-item" >Terms of Service </a></li>
-                    <li><a class="dropdown-item">Logout</a></li>
+                    <li (click)="logout()"><a class="dropdown-item">Logout</a></li>
                   </ul>
                 </div>
   

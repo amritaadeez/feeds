@@ -73,6 +73,8 @@ import {
   TermsConditionComponent
 } from './terms-condition/terms-condition.component';
 import { DirectoryProfileComponent } from './directory-profile/directory-profile.component';
+import { ContactSearchComponent } from './contact-search/contact-search.component';
+import { PostSearchComponent } from './post-search/post-search.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { DirectoryProfileComponent } from './directory-profile/directory-profile
     AboutComponent,
     TermsConditionComponent,
     DirectoryProfileComponent,
+    ContactSearchComponent,
+    PostSearchComponent,
   ],
   imports: [
     CommonModule,

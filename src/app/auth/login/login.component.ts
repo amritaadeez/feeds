@@ -79,22 +79,25 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           this.spinner = false
 
-          this._snackBar.open(response.message, "Thanks", {
+          this._snackBar.open("Successfully Logged In", "Thanks", {
             duration: 3000
           });
-          var token = response.token
-          var email = response.data.email_address
+        
           var id = response.data.id
-          localStorage.setItem("email", email)
+       
           localStorage.setItem("id", id)
-          localStorage.setItem("authToken", token)
+          localStorage.setItem("data", JSON.stringify(response))
           this.router.navigate(['/dashboard/home/main'])
         }, (error: any) => {
           this.spinner = false
           if (error.status == 0) {
+            this.spinner = false
           this._snackBar.open("Internet Connection Issue", "Cancel");
           } else {
+            this.spinner = false
+            console.log(this.spinner)
           this._snackBar.open(error.error.message, "Cancel");
+         
           }
         }
       );

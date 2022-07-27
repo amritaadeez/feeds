@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-11 col-lg-10 col-xl-10 col-md-8 mob-hero-img" >
-            <a href="index.html"><span class="logo mob"> <img src="assets/logo.png" class="img-fluid" /> <span class="mob-logo-text"> OMGIVA </span></span></a>
+            <a routerLink="/"><span class="logo mob"> <img src="assets/logo.png" class="img-fluid" /> <span class="mob-logo-text"> OMGIVA </span></span></a>
             <img src="assets/login_bg.svg" class="img-fluid hgt-img mob-img" alt="Sample image">
           </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="row  justify-content-center">
 
           <div class="col-11 col-lg-10 col-xl-10 col-md-8 mob-pad-top2">
-           <a href="index.html"><span class="logo mb-5 web"> <img src="assets/logo.png" class="img-fluid" /> OMGIVA</span> </a> 
+           <a  routerLink="/"><span class="logo mb-5 web"> <img src="assets/logo.png" class="img-fluid" /> OMGIVA</span> </a> 
             <h3 class="login-head">Log in to Omgiva</h3>
             <p class="mb-4 sub-heading">Lorem Ipsum is simply dummy text of the printing and <br class="web"> typesetting industry.</p>
             <form class="text-left ng-untouched ng-pristine ng-invalid" role="form" [formGroup]="loginForm"
@@ -45,8 +45,8 @@
                 <a routerLink="/forgot-password">Forgot password?</a>
               </div>
               <div class=" button-div d-grid text-center text-lg-start mt-4">
-               <a href="home.html" class="login-anchor"> 
-                <button type="submit" class="btn login-btn btn-block" >  Login</button> 
+               <a  class="login-anchor"> 
+                <button type="submit" class="btn login-btn btn-block" >  Login <i class="fas fa-spin fa-spinner" *ngIf="spinner"></i> </button> 
               </a> 
                 <p class="login-help text-center mt-2 mb-2"><a >Need Help?</a></p>
               </div>

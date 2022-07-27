@@ -32,9 +32,14 @@ export class NavbarComponent implements OnInit {
   }
   
   logout() {
+    localStorage.clear()
    this.router.navigate(['/'])
-   localStorage.clear()
+  
   }
 
+  charCount(data: any) {
+    console.log("s")
+    this.router.navigate(['/dashboard/search-contact'])
+  }
 
 }
