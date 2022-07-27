@@ -60,7 +60,7 @@ export class ApiserviceService {
     let header: HttpHeaders;
     header = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Bearer' + ' ' + this.token,
+      'X-Authorization': this.token,
     
     });
 
