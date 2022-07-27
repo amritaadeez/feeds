@@ -61,21 +61,21 @@ export class ResetPasswordComponent implements OnInit {
     } else {
       if (data.password === data.cpassword) {
 
-        this.apiService.resetPassword(data, this.resetLink).subscribe(
-          (response: any) => {
-            this.spinner = false
+        // this.apiService.resetPassword(data, this.resetLink).subscribe(
+        //   (response: any) => {
+        //     this.spinner = false
             
-            this._snackBar.open("Set password Successfully", "Thanks");
-            this.router.navigate(["/"])
+        //     this._snackBar.open("Set password Successfully", "Thanks");
+        //     this.router.navigate(["/"])
   
-          }, (error: any) => {
-            this.spinner = false
+        //   }, (error: any) => {
+        //     this.spinner = false
             
             
-            this._snackBar.open(error.error.message, "Try Again");
+        //     this._snackBar.open(error.error.message, "Try Again");
   
-          }
-        );
+        //   }
+        // );
         } else {
           this._snackBar.open("Confirm password should be same as password", "Ok");
           this.resetForm.controls.cpassword.reset()

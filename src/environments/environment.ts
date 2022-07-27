@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: ''
+  apiUrl: 'https://stg.omgiva.com/api'
 };
 
 /*

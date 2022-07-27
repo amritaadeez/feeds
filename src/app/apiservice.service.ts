@@ -55,10 +55,12 @@ export class ApiserviceService {
   }
 
 
-  public getResetPassword() {
+  public authlogin() {
+    this.token = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
     let header: HttpHeaders;
     header = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Bearer' + ' ' + this.token,
     
     });
 
@@ -76,68 +78,7 @@ export class ApiserviceService {
   }
 
 
-  public chartList(data: any) {
-    const body = {
-      chart_input: data.iot_data[0].iot_key,
-      device_name: data.DeviceName,
-      // time_interval: "1"
-     
-    };
-    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
-      headers: this.getAuthHeader()
-    });
-  }
-
-  public chartList2(data: any) {
-    const body = {
-      chart_input: data.iot_data[1].iot_key,
-      device_name: data.DeviceName,
-      // time_interval: "1"
-     
-    };
-    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
-      headers: this.getAuthHeader()
-    });
-  }
-
-  public chartList3(data: any) {
-    const body = {
-      chart_input: data.iot_data[2].iot_key,
-      device_name: data.DeviceName,
-      // time_interval: "1"
-     
-    };
-    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
-      headers: this.getAuthHeader()
-    });
-  }
-
-  public chartList4(data: any) {
-    const body = {
-      chart_input: data.iot_data[3].iot_key,
-      device_name: data.DeviceName,
-      // time_interval: "1"
-     
-    };
-    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
-      headers: this.getAuthHeader()
-    });
-  }
-
-
-  public wholeGraph(selectedTime: any, day: any ,device_name: any) {
-   
-    const body = {
-    devicename : device_name.DeviceName,
-    day_value : day,
-    time_interval : selectedTime
-     
-    };
-    return this.http.post(this.baseUrl + '/list_iot_data' , body ,  { 
-      headers: this.getAuthHeader()
-    });
-  }
-
+ 
 
   public register(data: any) {
     const body = {
@@ -162,25 +103,19 @@ export class ApiserviceService {
     return this.http.post(this.baseUrl + '/forgot_password', body);
   }
 
-  public resetPassword(data: any, resetLink: any) {
+  public loginSetup(data: any) {
     const params = new HttpParams()
-      .set('new_password', data.password)
-      .set('confirm_password', data.cpassword)
-    return this.http.post( resetLink,   params,  {
-      headers: this.getResetPassword()
+      .set('email', data.emailId)
+      .set('password', data.password)
+    return this.http.post( this.baseUrl + '/users/authenticate',  params,  {
+      headers: this.authlogin()
     });
   }
 
 
   public counytryList() {
-
-   
-   
     return this.http.get(this.baseUrl +  '/countrycode');
   }
-
- 
-
 
   public getProfile() {
    
@@ -188,16 +123,6 @@ export class ApiserviceService {
       headers: this.getAuthHeader()
     });
   }
-
-
-  public iot_datas() {
-   
-    return this.http.get(this.baseUrl + '/list_iotdata' ,  {
-      headers: this.getAuthHeader()
-    });
-  }
-
-
   
   public updateProfile(data: any) {
     const body = {
