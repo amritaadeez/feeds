@@ -23,19 +23,19 @@
                       class="omgiva-text"> OMGIVA</span></a>
                 </div>
               </div>
-              <a href="home.html" class="active"> <img src="assets/icon_home.svg" class="tab-img" /><span>Home</span> <i
+              <a  routerLink="/dashboard/home/profile" routerLinkActive="active" (click)="closeNav()"> <img src="assets/icon_home.svg" class="tab-img" /><span>Home</span> <i
                   class="fa fa-angle-right"></i> </a>
-              <a href="chat.html"> <img src="assets/icon_message.svg" class="tab-img" /><span>Chat</span> <i
+              <a  routerLink="/dashboard/chat"  routerLinkActive="active" (click)="closeNav()"> <img src="assets/icon_message.svg" class="tab-img" /><span>Chat</span> <i
                   class="fa fa-angle-right "></i></a>
-              <a href="directory-grid.html"> <img src="assets/icon_contact.svg" class="tab-img" /><span>Directory</span>
+              <a routerLink="/dashboard/directory"  routerLinkActive="active" (click)="closeNav()"> <img src="assets/icon_contact.svg" class="tab-img" /><span>Directory</span>
                 <i class="fa fa-angle-right "></i></a>
-              <a href="group.html"> <img src="assets/icon_multiuser.svg" class="tab-img" /><span>Group</span> <i
+              <a  routerLink="/dashboard/group"  routerLinkActive="active " (click)="closeNav()"> <img src="assets/icon_multiuser.svg" class="tab-img" /><span>Group</span> <i
                   class="fa fa-angle-right "></i></a>
               <hr>
-              <a routerLink="dashboard/notification"> <span>Notification Setting</span> <i class="fa fa-angle-right"></i>
+              <a routerLink="/dashboard/notification"  routerLinkActive="active" (click)="closeNav()"> <span>Notification Setting</span> <i class="fa fa-angle-right"></i>
               </a>
-              <a routerLink="/dashboard/about"> <span>About</span><i class="fa fa-angle-right"></i> </a>
-              <a routerLink="/dashboard/terms"> <span>Terms of Service</span><i class="fa fa-angle-right "></i>
+              <a routerLink="/dashboard/about"  routerLinkActive="active" (click)="closeNav()"> <span>About</span><i class="fa fa-angle-right"></i> </a>
+              <a routerLink="/dashboard/terms"  routerLinkActive="active" (click)="closeNav()"> <span>Terms of Service</span><i class="fa fa-angle-right "></i>
               </a>
               <a (click)="logout()"> <span>Logout</span> <i class="fa fa-angle-right "></i></a>
             </div>

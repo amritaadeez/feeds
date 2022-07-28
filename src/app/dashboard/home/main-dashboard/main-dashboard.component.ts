@@ -24,6 +24,7 @@ import {
 export class MainDashboardComponent implements OnInit {
 allFeedDatas: any
 allCarousels: any 
+loader:Boolean = true
   constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -32,14 +33,16 @@ this.allFeeds()
    
   }
   allFeeds() {
+    this.loader = true
     this.apiService.feedList().subscribe(
       (res:any) => {
+        this.loader = false
       console.log(res)
       this.allFeedDatas = res.data
       this.allCarousels = res.meta.carousel_items
       console.log(this.allCarousels)
       }, (err:any) => {
-        
+        this.loader = false
       }
     );
   }

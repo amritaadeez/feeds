@@ -78,6 +78,10 @@ import {
 import { DirectoryProfileComponent } from './directory-profile/directory-profile.component';
 import { ContactSearchComponent } from './contact-search/contact-search.component';
 import { PostSearchComponent } from './post-search/post-search.component';
+import { ContributionConfirmedComponent } from './contribution-confirmed/contribution-confirmed.component';
+import { ContributionSubmitComponent } from './contribution-submit/contribution-submit.component';
+import { RecordContributionComponent } from './record-contribution/record-contribution.component';
+import { RecordContributionTwoComponent } from './record-contribution-two/record-contribution-two.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +101,10 @@ import { PostSearchComponent } from './post-search/post-search.component';
     DirectoryProfileComponent,
     ContactSearchComponent,
     PostSearchComponent,
+    ContributionConfirmedComponent,
+    ContributionSubmitComponent,
+    RecordContributionComponent,
+    RecordContributionTwoComponent,
     // FooterComponent
   ],
   imports: [

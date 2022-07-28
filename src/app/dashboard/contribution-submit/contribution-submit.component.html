@@ -1,6 +1,5 @@
 <section>
-    
-
+   
     <div class="main-content">
         <div class="container">
             <div class="row">
@@ -9,11 +8,11 @@
                 </div>
             </div>
         </div>
-        <div class="">
-        <div class="toast">
-            <div class="toast-header">
+        <!-- <div class="toast-padding">
+        <div class="toasts">
+            <div class="toast-header" style="background-color: transparent;">
                     
-                            <div class="card ">
+                            <div class="card">
                                 <div class="card-body carousel-card-body">
                                     <img class="img-card" src="assets/checked.png">
                                     <p class="card-text">Lorem Ipsum is simply dummy text </p>
@@ -24,7 +23,34 @@
                         </div>
                     
                 </div>
-            </div> 
+            </div>  -->
+
+            <!-- The Modal -->
+<div class="modal" id="myModal">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+
+    <!-- Modal Header -->
+    <!-- <div class="modal-header">
+      <h4 class="modal-title">Modal Heading</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div> -->
+
+    <!-- Modal body -->
+    <div class="modal-body">
+    <div> <img src="assets/undraw_taken_re_yn20 (1).svg" alt="modal-img" class="img-fluid"></div>
+     <div class="pt-4"><p>Once you submit the video, you will not be able to modify it or delete it.</p></div>
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+      <button type="button" class="btn btn-proceed" >Proceed</button>
+    </div>
+
+  </div>
+</div>
+</div>
        
         <div class="container">
             <div class="row">
@@ -58,9 +84,9 @@
                         <div class="pt-3 your-contri2">
                        
                             
-                            <button class="btn discard-btn">Discard</button>
-                                <button class="btn post-btn">Redo</button>
-                               <a routerLink="/dashboard/contribution-confirmed"> <button class="btn contacts-btn ">Keep</button> </a> 
+                            <button class="btn discard-btn" style="color: white;">Delete</button>
+                               
+                                <button class="btn contacts-btn " data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -70,6 +96,9 @@
         </div>
 
     </div>
-    
+
 
 </section>
+<footer>
+    <p>Copyright Omgiva 2022</p>
+</footer>
