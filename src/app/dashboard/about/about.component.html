@@ -16,8 +16,13 @@
               <div class="card buttons-holder notification-setting-page">
                 <div >
                    <img src="assets/notification-setting.svg" class="img-fluid">
-                    <p>The Pinky Swear Foundation leadership has initated a pilot to test out a new app for PACK leaders and members. This pilot is managed by the Pinky swear foundation in Partnership with Omgiva LLC.</p>
-                  </div>
+                <p *ngIf="details"> {{details.body}} </p> 
+                <p  *ngIf="!details" class="place-loader">  </p>    
+                <p  *ngIf="!details" class="place-loader">  </p>    
+                <p  *ngIf="!details" class="place-loader">  </p>    
+                <p  *ngIf="!details" class="place-loader">  </p>    
+                <p  *ngIf="!details" class="place-loader">  </p>    
+                </div>
                   
             </div>
             </div>

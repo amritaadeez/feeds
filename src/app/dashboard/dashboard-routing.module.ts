@@ -38,7 +38,7 @@ const routes: Routes = [{
       component: ChatScreenComponent,
     },
     {
-      path: "contribution",
+      path: "contribution/:id",
       canActivate: [AuthGuard],
       component: YourContributionComponent,
     },

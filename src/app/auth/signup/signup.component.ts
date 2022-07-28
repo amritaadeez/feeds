@@ -103,30 +103,7 @@ export class SignupComponent implements OnInit {
 
       if (data.password === data.cpassword) {
 
-      this.apiService.register(data).subscribe(
-        (response: any) => {
-          this.spinner = false
-          
-          this._snackBar.open("Registered Successfully", "Thanks");
-          this.router.navigate(["/"])
-
-        }, (error: any) => {
-          this.spinner = false
-      
-        
-          if (error.error.message === "The entered email already exists.") {
-            let sb = this._snackBar.open(error.error.message, "Go To Login");
-          
-            sb.onAction().subscribe(() => {
-             this.login()
-            });
-          } else {
-            this._snackBar.open(error.error.message, "Try Again");
-          }
-           
-
-        }
-      );
+    
       } else {
         this._snackBar.open("Confirm password should be same as password", "Ok");
         this.signUpForm.controls.cpassword.reset()

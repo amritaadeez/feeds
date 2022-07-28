@@ -57,6 +57,19 @@ export class ApiserviceService {
     return header;
   }
 
+  public createCommentHeader() {
+    this.tokenXAuth = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
+    this.token = localStorage.getItem("authToken")
+    console.log(this.token)
+    let header: HttpHeaders;
+    header = new HttpHeaders({
+      'X-Authorization': this.tokenXAuth,
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Bearer' + ' ' + this.token,
+    });
+
+    return header;
+  }
 
   public authlogin() {
     this.tokenXAuth = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
@@ -93,19 +106,7 @@ export class ApiserviceService {
 
  
 
-  public register(data: any) {
-    const body = {
-      first_name: data.firstName,
-      last_name: data.lastName,
-      email_address: data.emailId,
-      password: data.password,
-      confirm_password: data.cpassword,
-      country_code: data.countryCode,
-      phone: data.phone
-    };
-
-    return this.http.post(this.baseUrl + '/signup', body);
-  }
+  
 
 
   public forgotPassword(data: any) {
@@ -114,6 +115,8 @@ export class ApiserviceService {
       headers: this.forgotAuth()
     });
   }
+
+
 
   public loginSetup(data: any) {
     const params = new HttpParams()
@@ -131,37 +134,41 @@ export class ApiserviceService {
     });
   }
 
+   public aboutDetails() {
+    return this.http.get(this.baseUrl +  '/about', {
+      headers: this.getAuthHeader()
+    });
+  }
+
   public getProfile() {
-   
     return this.http.get(this.baseUrl + '/get_user_profile',  {
       headers: this.getAuthHeader()
     });
   }
-  
-  public updateProfile(data: any) {
-    const body = {
-      first_name: data.firstName,
-      last_name: data.lastName,
-      country_code: data.countryCoded,
-      phone: data.phone
-    }
 
-    return this.http.put(this.baseUrl + '/update_user_profile', body ,  {
+
+  public createLike(id: any) {
+    return this.http.post(this.baseUrl +  '/updates/likes/' + id, '', {
       headers: this.getAuthHeader()
     });
   }
 
-
-  public changePassword(data: any) {
-    const body = {
-     old_password: data.password,
-     new_password: data.cpassword
-    }
-
-    return this.http.post(this.baseUrl + '/change_password', body ,  {
+  public getFeedDetails(id: any) {
+    return this.http.get(this.baseUrl +  '/updates/' + id, {
       headers: this.getAuthHeader()
     });
   }
 
+  public removeLike(id: any) {
+    return this.http.delete(this.baseUrl +  '/updates/likes/' + id, {
+      headers: this.getAuthHeader()
+    });
+  }
+  public createComment(data: any, id: any) {
+
+    return this.http.post(this.baseUrl + '/updates/comments/' + id , data, {
+      headers: this.createCommentHeader()
+    });
+  }
 
 }

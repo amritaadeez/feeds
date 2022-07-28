@@ -123,30 +123,7 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  updateProfile(data: any) {
-    this.submitted = true
-    this.loader = true
-
-    
-    this.apiService.updateProfile(data).subscribe(
-      (res: any) => {
-        console.log(res)
-        this.profileData = res.data
-        this._snackBar.open(res.message, "Thanks", {
-          duration: 3000
-        });
-        this.loader = false
-      },
-      (err: any) => {
-        this._snackBar.open(err.message, "Sorry", {
-          duration: 3000
-        });
-        this.loader = false
-
-      }
-    );
-  }
-
+  
 
   change() {
     this.showCP = !this.showCP
@@ -155,40 +132,5 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  changePassword(data: any) {
-    this.spinner = true;
-    this.submitted =  true
-
-    if (this.changePasswordForm.invalid) {
-      this.spinner =  false
-      return
-    }
-
-    if(data.password === data.cpassword) {
-    this._snackBar.open("New password should not be same as old password", "Ok" , {
-      duration: 2000
-    });
-    this.changePasswordForm.controls.cpassword.reset()
-    this.spinner = false
-    return
-    }
-
-    this.apiService.changePassword(data).subscribe(
-      (response: any) => {
-        console.log(response)
-        this._snackBar.open(response.message, "Thanks", {
-          duration: 3000
-        });
-        this.spinner =  false
-        this.showCP = !this.showCP
-      }, (err: any) => {
-        this._snackBar.open(err.error.message, "Try Again", {
-          duration: 3000
-        });
-        this.spinner = false
-      }
-    );
-
-  }
-
+ 
 }

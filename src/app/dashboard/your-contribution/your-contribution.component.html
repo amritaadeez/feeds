@@ -31,26 +31,18 @@
                 <div class="leftcolumn">
                     <div class="card">
                         <div class="card-title">
-                            <img src="assets/profile-image.png">
-                            <div> <span class="user-name"> Jaden wilsom </span> <br>
-                                <span class="user-timing">May 05, 2022 09:00 pm</span> </div>
+                            <img class="image-avatar" src={{feed.author_avatar_url_large}}>
+                            <div> <span class="user-name"> {{feed.author_name}} </span> <br>
+                              <span class="user-timing">{{feed.content_time_created | date}}</span> </div>
+                
+                          </div>
+                          <div class="fakeimg"><img src={{feed.cover_image}} class="img-fluid"></div>
 
-                        </div>
-                        <div class="fakeimg">
-                           <span> <img src="assets/kalen-emsley-Bkci_8qcdvQ-unsplash.png"
-                                class="img-fluid"> </span>
-                               <!-- <div class="play-btn"> <img src="assets/play (1).png" alt="" ></div> -->
-                            </div>
                            
-                        <div class="pt-3">
-                            <p><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry.</span></p>
-                            <p  class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged.</p>
-                        </div>
+                          <div class="pt-3">
+                            <p><span class="para-heading-home">{{feed.excerpt}}</span></p>
+                            <p class="paragraph">{{feed.description}}</p>
+                          </div>
                   <div class="input-check">
                     <input type="checkbox" id="myCheck" checked >
                     <label for="myCheck" class="paragraph ps-2">Use my profile picture instead of the video</label> 
@@ -64,8 +56,11 @@
                         </div>
                     </div>
                 </div>
+                
 
             </div>
+
+            
          
         </div>
 
