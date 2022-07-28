@@ -77,20 +77,20 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.password = 'password';
     this.cpassword = 'password';
-    this.countryList()
+    // this.countryList()
   }
 
 
-  countryList() {
-    this.apiService.counytryList().subscribe(
-      (res:any) => {
-        this.countryCode = res.countrycoderesponse
+  // countryList() {
+  //   this.apiService.counytryList().subscribe(
+  //     (res:any) => {
+  //       this.countryCode = res.countrycoderesponse
 
-      }, (err:any) => {
+  //     }, (err:any) => {
         
-      }
-    );
-  }
+  //     }
+  //   );
+  // }
 
   register(data: any) {
     

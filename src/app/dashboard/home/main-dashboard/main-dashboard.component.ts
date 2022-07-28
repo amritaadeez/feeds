@@ -22,14 +22,26 @@ import {
   styleUrls: ['./main-dashboard.component.scss']
 })
 export class MainDashboardComponent implements OnInit {
- 
+allFeedDatas: any
+allCarousels: any 
   constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
 
-
+this.allFeeds()
    
   }
-
+  allFeeds() {
+    this.apiService.feedList().subscribe(
+      (res:any) => {
+      console.log(res)
+      this.allFeedDatas = res.data
+      this.allCarousels = res.meta.carousel_items
+      console.log(this.allCarousels)
+      }, (err:any) => {
+        
+      }
+    );
+  }
 
 }

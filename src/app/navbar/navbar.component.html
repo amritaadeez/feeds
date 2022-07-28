@@ -34,8 +34,8 @@
               <hr>
               <a routerLink="dashboard/notification"> <span>Notification Setting</span> <i class="fa fa-angle-right"></i>
               </a>
-              <a href="about.html"> <span>About</span><i class="fa fa-angle-right"></i> </a>
-              <a href="terms-of-service.html"> <span>Terms of Service</span><i class="fa fa-angle-right "></i>
+              <a routerLink="/dashboard/about"> <span>About</span><i class="fa fa-angle-right"></i> </a>
+              <a routerLink="/dashboard/terms"> <span>Terms of Service</span><i class="fa fa-angle-right "></i>
               </a>
               <a (click)="logout()"> <span>Logout</span> <i class="fa fa-angle-right "></i></a>
             </div>
@@ -59,8 +59,8 @@
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" routerLink="/dashboard/home/profile">Edit Profile</a></li>
                 <li><a class="dropdown-item" routerLink="/dashboard/notification">Notification Setting</a></li>
-                <li><a class="dropdown-item">About </a></li>
-                <li><a class="dropdown-item" >Terms of Service </a></li>
+                <li><a class="dropdown-item" routerLink="/dashboard/about">About </a></li>
+                <li><a class="dropdown-item" routerLink="/dashboard/terms">Terms of Service </a></li>
                 <li (click)="logout()"><a   class="dropdown-item">Logout</a></li>
               </ul>
             </div>
@@ -103,13 +103,13 @@
                 <div class="dropdown">
                   <button class="dropdown dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="pro-icon" src="assets/profile-image.png"> <i class="fa-solid fa-angle-down down-icon"></i>
+                    <img class="pro-icon" src={{avatar.data.avatar}}> <i class="fa-solid fa-angle-down down-icon"></i>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" routerLink="/dashboard/home/profile">Edit Profile</a></li>
                     <li><a class="dropdown-item" routerLink="/dashboard/notification">Notification Setting</a></li>
-                    <li><a class="dropdown-item" >About </a></li>
-                    <li><a class="dropdown-item" >Terms of Service </a></li>
+                    <li><a class="dropdown-item" routerLink="/dashboard/about">About </a></li>
+                    <li><a class="dropdown-item" routerLink="/dashboard/terms">Terms of Service </a></li>
                     <li (click)="logout()"><a class="dropdown-item">Logout</a></li>
                   </ul>
                 </div>

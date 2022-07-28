@@ -24,7 +24,7 @@ import {
 export class ApiserviceService {
   baseUrl = environment.apiUrl;
   token: string;
-
+  tokenXAuth : string = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
 
   constructor(private http: HttpClient, private authService: AuthService, public router: Router) {
    
@@ -44,9 +44,12 @@ export class ApiserviceService {
   // }
 
   public getAuthHeader() {
+    this.tokenXAuth = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
     this.token = localStorage.getItem("authToken")
+    console.log(this.token)
     let header: HttpHeaders;
     header = new HttpHeaders({
+      'X-Authorization': this.tokenXAuth,
       'Content-Type': 'application/json',
       'Authorization': 'Bearer' + ' ' + this.token,
     });
@@ -56,11 +59,21 @@ export class ApiserviceService {
 
 
   public authlogin() {
-    this.token = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
+    this.tokenXAuth = "3EGHXyM6xjVPwIsC6vVhu09INGLaG6cM7z0HiTRVymaXKToIBJwAAjE6DpF9AerT"
     let header: HttpHeaders;
     header = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      'X-Authorization': this.token,
+      'X-Authorization': this.tokenXAuth,
+    
+    });
+
+    return header;
+  }
+
+  public forgotAuth() {
+    let header: HttpHeaders;
+    header = new HttpHeaders({
+      'X-Authorization': this.tokenXAuth,
     
     });
 
@@ -96,11 +109,10 @@ export class ApiserviceService {
 
 
   public forgotPassword(data: any) {
-    const body = {
-      email_address: data.emailId,
-    };
 
-    return this.http.post(this.baseUrl + '/forgot_password', body);
+    return this.http.post(this.baseUrl + '/users/send_password_reset_email', data, {
+      headers: this.forgotAuth()
+    });
   }
 
   public loginSetup(data: any) {
@@ -113,8 +125,10 @@ export class ApiserviceService {
   }
 
 
-  public counytryList() {
-    return this.http.get(this.baseUrl +  '/countrycode');
+  public feedList() {
+    return this.http.get(this.baseUrl +  '/updates', {
+      headers: this.getAuthHeader()
+    });
   }
 
   public getProfile() {

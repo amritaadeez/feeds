@@ -18,6 +18,9 @@ import {
 import {
   NavbarComponent
 } from '../navbar/navbar.component';
+// import {
+//   FooterComponent
+// } from '../footer/footer.component';
 import {
   SidebarComponent
 } from '../sidebar/sidebar.component';
@@ -94,6 +97,7 @@ import { PostSearchComponent } from './post-search/post-search.component';
     DirectoryProfileComponent,
     ContactSearchComponent,
     PostSearchComponent,
+    // FooterComponent
   ],
   imports: [
     CommonModule,

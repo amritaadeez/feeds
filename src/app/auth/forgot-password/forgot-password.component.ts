@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/auth.service';
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss']
 })
+
 export class ForgotPasswordComponent implements OnInit {
   forgotForm: FormGroup;
   spinner: boolean;
@@ -48,7 +49,10 @@ export class ForgotPasswordComponent implements OnInit {
       // this.submitted = false;
       return;
     } else {
-      this.apiService.forgotPassword(data).subscribe(
+      const formData = new FormData();
+      formData.append('email', data.emailId);
+      console.log("sddsdd")
+      this.apiService.forgotPassword(formData).subscribe(
         (response: any) => {
           this.spinner = false
           
@@ -57,9 +61,7 @@ export class ForgotPasswordComponent implements OnInit {
             duration: 3000
           });
 
-          this.authService.resetUrl.next(this.resetLink)
-
-          this.router.navigate(['/reset-password'])
+        
         
         }, (error: any) => {
           this.spinner = false

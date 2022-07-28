@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { LayoutComponent } from '../layout/layout.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { AboutComponent } from './about/about.component';
 import { ChatScreenComponent } from './chat-screen/chat-screen.component';
 import { ContactSearchComponent } from './contact-search/contact-search.component';
 import { DirectoryGridComponent } from './directory-grid/directory-grid.component';
@@ -10,6 +11,7 @@ import { DirectoryProfileComponent } from './directory-profile/directory-profile
 import { GroupComponent } from './group/group.component';
 import { NotificationSettingComponent } from './notification-setting/notification-setting.component';
 import { PostSearchComponent } from './post-search/post-search.component';
+import { TermsConditionComponent } from './terms-condition/terms-condition.component';
 import { YourContributionComponent } from './your-contribution/your-contribution.component';
 
 
@@ -65,6 +67,16 @@ const routes: Routes = [{
       path: "search-post",
       canActivate: [AuthGuard],
       component: PostSearchComponent,
+    },
+    {
+      path: "about",
+      canActivate: [AuthGuard],
+      component: AboutComponent,
+    },
+    {
+      path: "terms",
+      canActivate: [AuthGuard],
+      component: TermsConditionComponent,
     },
     {
       path: "**",

@@ -10,76 +10,24 @@
     </div>
   </div>
   <!-- <div id="carouselExampleIndicators" class="carousel slide container carousel-spacing" data-ride="carousel"> -->
-  <div id="demo" class="carousel slide container carousel-spacing web" data-bs-ride="carousel">
+  <div id="demo" class="carousel slide container carousel-spacing web" data-bs-ride="carousel" *ngIf="allCarousels">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active"  *ngFor="let item of allCarousels">
         <div class="row">
 
-          <div class="col-sm-4  col-lg-4 col-xl-4 ">
+          <div class="col-md-12 ">
             <div class="card">
               <div class="card-body carousel-card-body">
                 <img class="img-card" src="assets/vuesax-bold-gallery.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
+                <p class="card-text">{{item.title}} </p>
 
               </div>
 
             </div>
           </div>
-          <div class="col-sm-4 col-lg-4 col-xl-4 ">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-note-text.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-lg-4 col-xl-4 ">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-video-play.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="row">
-
-          <div class="col-sm-4 col-lg-4 col-xl-4 ">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-gallery.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-
-            </div>
-          </div>
-          <div class="col-sm-4 col-lg-4 col-xl-4 ">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-note-text.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-lg-4 col-xl-4 ">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-video-play.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      
 
     </div>
     <button class="carousel-control-prev web" type="button" data-bs-target="#demo" data-bs-slide="prev">
@@ -91,14 +39,14 @@
   </div>
   <div id="demo" class="carousel slide container carousel-spacing mob" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active" *ngFor="let item of allCarousels">
         <div class="row">
 
           <div class="col-md-12 ">
             <div class="card">
               <div class="card-body carousel-card-body">
                 <img class="img-card" src="assets/vuesax-bold-gallery.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
+                <p class="card-text">{{item.title}} </p>
 
               </div>
 
@@ -106,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item ">
+      <!-- <div class="carousel-item ">
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -173,36 +121,31 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row" *ngFor="let feed of allFeedDatas">
       <div class="leftcolumn">
 
         <div class="card">
           <div class="card-title">
-            <img src="assets/profile-image.png">
-            <div> <span class="user-name"> Sam Warner </span> <br>
-              <span class="user-timing">35 mints ago</span> </div>
+            <img class="image-avatar" src={{feed.author_avatar_url_large}}>
+            <div> <span class="user-name"> {{feed.author_name}} </span> <br>
+              <span class="user-timing">{{feed.content_time_created | date}}</span> </div>
 
           </div>
-          <a href="your-contribution.html">
-            <div class="fakeimg"><img src="assets/dino-reichmuth-A5rCN8626Ck-unsplash.png" class="img-fluid"></div>
+          <a routerLink="/dashboard/contribution">
+            <div class="fakeimg"><img src={{feed.cover_image}} class="img-fluid"></div>
           </a>
           <div class="pt-3">
-            <p><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.</span></p>
-            <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled it to make a type specimen book.
-              It has survived not only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged.</p>
+            <p><span class="para-heading-home">{{feed.excerpt}}</span></p>
+            <p class="paragraph">{{feed.description}}</p>
           </div>
           <div>
-            <span class="pe-3 like-subs"><img id="myImage" onclick="changeImage()" src="assets/heartoff.svg">278k</span>
-            <span class="pe-3 like-subs"><img src="assets/vuesax-linear-messages.svg">18k</span>
+            <span class="pe-3 like-subs"><img id="myImage" onclick="changeImage()" src="assets/heartoff.svg">{{feed.impressions.total}}</span>
+            <span class="pe-3 like-subs"><img src="assets/vuesax-linear-messages.svg">{{feed.comments_count}}</span>
           </div>
           <div class="pt-3 post-comment">
             <textarea class="form-control search-input txta" placeholder="Post your comment."
@@ -213,106 +156,9 @@
       </div>
 
     </div>
-    <div class="row">
-      <div class="leftcolumn">
-        <div class="card">
-          <div class="card-title">
-            <img src="assets/profile-image.png">
-            <div>
-              <span class="user-name"> James Widen </span> <br>
-              <span class="user-timing"> May 09, 2022 10:00 am</span>
-            </div>
-          </div>
-          <div class="fakeimg"><img src="assets/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.png" class="img-fluid">
-          </div>
-          <div class="pt-3">
-            <p><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.</span></p>
-            <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled it to make a type specimen book.
-              It has survived not only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged.</p>
-          </div>
-          <div>
-            <span class="pe-3 like-subs"><img id="myImage2" onclick="changeImage2()"
-                src="assets/heartoff.svg">278k</span>
-            <span class="pe-3 like-subs"><img src="assets/vuesax-linear-messages.svg">18k</span>
-          </div>
-          <div class="pt-3 post-comment">
-            <textarea class="form-control search-input txta" placeholder="Post your comment."
-              style="resize: none;"></textarea> <button type="submit" class="input-submit btn"></button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="leftcolumn">
-        <div class="card">
-          <div class="card-title">
-            <img src="assets/profile-image.png">
-            <div>
-              <span class="user-name"> James Wilsom </span> <br>
-              <span class="user-timing"> May 05, 2022 10:00 am</span>
-            </div>
-          </div>
-          <div class="fakeimg"><img src="assets/kalen-emsley-Bkci_8qcdvQ-unsplash.png" class="img-fluid"></div>
-          <div class="pt-3">
-            <p><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.</span></p>
-            <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled it to make a type specimen book.
-              It has survived not only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged.</p>
-          </div>
-          <div>
-            <span class="pe-3 like-subs"><img id="myImage3" onclick="changeImage3()"
-                src="assets/heartoff.svg">278k</span>
-            <span class="pe-3 like-subs"><img src="assets/vuesax-linear-messages.svg">18k</span>
-          </div>
-          <div class="pt-3 post-comment">
-            <textarea class="form-control search-input txta" placeholder="Post your comment."
-              style="resize: none;"></textarea> <button type="submit" class="input-submit btn"></button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="leftcolumn">
-        <div class="card">
-          <div class="card-title">
-            <img src="assets/profile-image.png">
-            <div>
-              <span class="user-name"> Rajat Thakur </span> <br>
-              <span class="user-timing"> April 29, 2022 02:00 pm</span>
-            </div>
-          </div>
-          <div class="fakeimg"><img src="assets/gabriel-sanchez-jqlXLIj3aS8-unsplash.png" class="img-fluid"></div>
-          <div class="pt-3">
-            <p><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.</span></p>
-            <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled it to make a type specimen book.
-              It has survived not only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged.</p>
-          </div>
-          <div>
-            <span class="pe-3 like-subs"><img id="myImage4" onclick="changeImage4()"
-                src="assets/heartoff.svg">278k</span>
-            <span class="pe-3 like-subs"><img src="assets/vuesax-linear-messages.svg">18k</span>
-          </div>
-          <div class="pt-3 post-comment">
-            <textarea class="form-control search-input txta" placeholder="Post your comment."
-              style="resize: none;"></textarea> <button type="submit" class="input-submit btn"></button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+   </div>
 
 </div>
+<footer>
+  <p>Copyright Omgiva 2022</p>
+</footer>

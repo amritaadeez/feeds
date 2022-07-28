@@ -88,19 +88,19 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile()
-    this.countryList()
+    // this.countryList()
   }
 
-  countryList() {
-    this.apiService.counytryList().subscribe(
-      (res:any) => {
-        this.countryCode = res.countrycoderesponse
+  // countryList() {
+  //   this.apiService.counytryList().subscribe(
+  //     (res:any) => {
+  //       this.countryCode = res.countrycoderesponse
 
-      }, (err:any) => {
+  //     }, (err:any) => {
         
-      }
-    );
-  }
+  //     }
+  //   );
+  // }
 
   getProfile() {
     this.apiService.getProfile().subscribe(

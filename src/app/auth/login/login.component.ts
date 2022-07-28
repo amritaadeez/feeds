@@ -86,6 +86,7 @@ export class LoginComponent implements OnInit {
           var id = response.data.id
        
           localStorage.setItem("id", id)
+          localStorage.setItem("authToken", response.data.token)
           localStorage.setItem("data", JSON.stringify(response))
           this.router.navigate(['/dashboard/home/main'])
         }, (error: any) => {
