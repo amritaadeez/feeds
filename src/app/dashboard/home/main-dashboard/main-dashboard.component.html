@@ -142,7 +142,7 @@
           </a>
           <div class="pt-3">
             <p><span class="para-heading-home">{{feed.excerpt}}</span></p>
-            <p class="paragraph">{{feed.description}}</p>
+            <p class="paragraph" [innerHtml]="feed.description"></p>
           </div>
           <div>
             <span class="pe-3 like-subs"   (click)="createLike(feed.id, feed.user_has_liked_content)"> <i class="far fa-thin fa-heart" *ngIf="feed.user_has_liked_content == false"></i> <i class="fas solid fa-heart"  *ngIf="feed.user_has_liked_content == true" ></i> {{feed.likes_count}}</span> 

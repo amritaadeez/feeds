@@ -29,7 +29,7 @@ import {
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  spinner: boolean = false;
+  spinner: boolean;
   submitted: boolean;
   durationInSeconds: number = 3;
   password: string;

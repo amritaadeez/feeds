@@ -46,7 +46,8 @@
               </div>
               <div class=" button-div d-grid text-center text-lg-start mt-4">
                <a  class="login-anchor"> 
-                <button type="submit" class="btn login-btn btn-block" >  Login <i class="fas fa-spin fa-spinner" *ngIf="spinner"></i> </button> 
+                <button type="submit" class="btn login-btn btn-block" *ngIf="!spinner">  Login</button> 
+                <button type="submit" class="btn login-btn btn-block" *ngIf="spinner">  Login <i class="fas fa-spin fa-spinner" ></i> </button> 
               </a> 
                 <p class="login-help text-center mt-2 mb-2"><a  routerLink="/need-help">Need Help?</a></p>
               </div>

@@ -16,7 +16,7 @@
               <div class="card buttons-holder notification-setting-page">
                 <div >
                    <img src="assets/notification-setting.svg" class="img-fluid">
-                <p *ngIf="details"> {{details.body}} </p> 
+                <p *ngIf="details" [innerHtml]="details.body"> </p> 
                 <p  *ngIf="!details" class="place-loader">  </p>    
                 <p  *ngIf="!details" class="place-loader">  </p>    
                 <p  *ngIf="!details" class="place-loader">  </p>    
