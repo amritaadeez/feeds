@@ -127,7 +127,7 @@
     </div>
   </div>
   <div class="container" *ngIf="!loader">
-    <div class="row" *ngFor="let feed of allFeedDatas">
+    <div class="row" *ngFor="let feed of allFeedDatas; let index = index">
       <div class="leftcolumn">
 
         <div class="card">
@@ -145,7 +145,12 @@
             <p class="paragraph">{{feed.description}}</p>
           </div>
           <div>
-            <span class="pe-3 like-subs"   (click)="createLike(feed.id, feed.user_has_liked_content)"> <i class="far fa-thin fa-heart" *ngIf="feed.user_has_liked_content == false"></i> <i class="fas solid fa-heart"  *ngIf="feed.user_has_liked_content == true" ></i> {{feed.likes_count}}</span> 
+            <span class="pe-3 like-subs "  *ngIf="!loaders" (click)="createLike(feed.id, feed.user_has_liked_content, index)"> <i class="far fa-thin fa-heart" *ngIf="!feed.user_has_liked_content"></i> <i class="fas solid fa-heart"  *ngIf="feed.user_has_liked_content" ></i> {{feed.likes_count}}</span> 
+            <!-- <div class="loader" > -->
+            <span class="pe-3 like-subs "*ngIf="loaders" > <i class="far fa-thin fa-heart " *ngIf="!liked && index == index"></i> <i class="fas solid fa-heart "  *ngIf="liked && index == index" ></i> 
+              <span  *ngIf="!liked && index == index"> {{+(feed.likes_count) - 1}}</span><span  *ngIf="liked && index == index"> {{+(feed.likes_count) + 1}}</span>
+              </span> 
+            <!-- </div> -->
             <span class="pe-3 like-subs"><img src="assets/vuesax-linear-messages.svg">{{feed.comments_count}}</span>
           </div>
           <div class="pt-3 post-comment">
@@ -154,7 +159,7 @@
           </div>
           <div class=" card-title" style="border-radius: 10px; border: 1px solid rgb(243, 237, 237); margin-top:1em; padding: 1em;">
             <img class="image-avatar" src={{feed.last_comment.profile_image_small}}>
-            <div> <span class="user-name"> {{feed.last_comment.name}} |<span style="color: grey">{{feed.last_comment.time | date}} </span> </span> <br>
+            <div> <span class="user-name"> {{feed.last_comment.name}} | <span style="color: grey"> {{feed.last_comment.time | date}} </span> </span> <br>
               <span class="user-timing">{{feed.last_comment.text}}</span> </div>
 
           </div>

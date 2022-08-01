@@ -87,7 +87,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProfile()
+    // this.getProfile()
     // this.countryList()
   }
 
