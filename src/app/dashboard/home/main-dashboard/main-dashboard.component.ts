@@ -26,6 +26,9 @@ allFeedDatas: any
 allCarousels: any 
 loader:Boolean = true
   commentInput: any;
+  liked: any;
+  loaders: boolean;
+  index: any;
   constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -49,22 +52,30 @@ this.allFeeds()
     );
   }
 
-  createLike(id: any, userLike: boolean) {
-    console.log("ssss", id)
+  createLike(id: any, userLike: boolean, index: any) {
+    console.log("ssss", id, index)
+this.loaders = true
+this.index = index
+    if (userLike) {
+
+    this.liked = false
+    } else {
+      this.liked = true
+    }
+
 
     if (!userLike) {
       this.apiService.createLike(id).subscribe(
         (res:any) => {
-          this.loader = false
           this.apiService.feedList().subscribe(
             (res:any) => {
-              this.loader = false
+              this.loaders = false
             console.log(res)
             this.allFeedDatas = res.data
             this.allCarousels = res.meta.carousel_items
             console.log(this.allCarousels)
             }, (err:any) => {
-              this.loader = false
+              this.loaders = false
             }
           );
    
@@ -75,21 +86,21 @@ this.allFeeds()
     } else {
       this.apiService.removeLike(id).subscribe(
         (res:any) => {
-          this.loader = false
+          
           this.apiService.feedList().subscribe(
             (res:any) => {
-              this.loader = false
+              this.loaders = false
             console.log(res)
             this.allFeedDatas = res.data
             this.allCarousels = res.meta.carousel_items
             console.log(this.allCarousels)
             }, (err:any) => {
-              this.loader = false
+              this.loaders = false
             }
           );
    
         }, (err:any) => {
-          this.loader = true
+          this.loaders = true
         }
       );
     }
