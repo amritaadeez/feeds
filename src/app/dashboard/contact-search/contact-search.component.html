@@ -17,8 +17,8 @@
               <div class="pb-3">
                 <p style="color: #000000;">Search Results</p>
                 <div style="display: flex;">
-                  <a routerLink="/dashboard/search-contact"><button class="btn contacts-btn">Contacts</button></a>
-                  <a routerLink="/dashboard/search-post"> <button class="btn post-btn">Post</button> </a>
+                 <button class="btn contacts-btn" >Contacts</button>
+                  <a > <button class="btn post-btn" (click)="navPost()">Post</button> </a>
                 </div>
               </div>
               <div class="table-responsive">
@@ -35,185 +35,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
+                    <tr *ngFor="let detail of details">
+                      <td>{{detail.id}}</td>
+                      <td>{{detail.name}}</td>
+                      <td>{{detail.email}}</td>
+                      <td>{{detail.guid}}</td>
+                      <td>{{detail.time_created | date}}</td>
                       <td>0</td>
                       <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
                     </tr>
 
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>Sai Parikshith</td>
-                      <td>saiparikshith@gmail.com</td>
-                      <td>490440</td>
-                      <td>06-04-2022</td>
-                      <td>0</td>
-                      <td><button class="icon-button btn"><i class="fa-solid fa-ellipsis-vertical"></i> </button> </td>
-                    </tr>
+                   
                   </tbody>
                 </table>
               </div>

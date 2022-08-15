@@ -209,13 +209,13 @@ opacity: 1;
   }
   
   .pro-icon {
-    height: 2.5em;
-    width: 2.5em;
+    height: 2em !important;
+    width: 2em !important;
   }
   
   .pro-icon,
   .down-icon {
-    margin: 0 0.25em;
+    // margin: 0 0.25em;
   }
   
   .dropdown-toggle::after {
@@ -340,7 +340,7 @@ opacity: 1;
   
   .card-title {
     display: flex;
-    padding: 1em 0;
+    // padding: 1em 0;
     align-items: center;
   }
   
@@ -747,4 +747,36 @@ opacity: 1;
     overflow: hidden;
     background: #F6F6F6 !important;
     line-height: 1.4;
+  }
+  .hr-line{
+    height: 1px;
+    background-color: gray;
+    position: relative;
+    margin-bottom: 2em;
+  }
+  .text-overlap{
+    background-color: #fff;
+    position: absolute;
+    top: -1em;
+    padding: 0.5em 1em;
+  }
+
+  .list-li {
+    font-size: larger;
+    padding: 0.5em;
+
+    .fa-check {
+      color: green !important;
+    }
+  }
+
+  .list-li:hover {
+    color: #2565AF;
+    cursor: pointer;
+    background-color: #d1c4c4;
+  }
+
+
+  .modal-title {
+    margin: 0 !important;
   }

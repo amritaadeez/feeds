@@ -88,6 +88,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("id", id)
           localStorage.setItem("authToken", response.data.token)
           localStorage.setItem("data", JSON.stringify(response))
+          localStorage.setItem('avatar', response.data.avatar)
           this.router.navigate(['/dashboard/home/main'])
         }, (error: any) => {
           this.spinner = false

@@ -318,11 +318,36 @@ opacity: 1;
   .fakeimg {
     width: 100%;
     border-radius: 10px;
+    position: absolute;
+    z-index: -1;
     
   } 
   .fakeimg span > img {
     border-radius: 5px;
     position: relative;
+  }
+  .fakeimg2 {
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    
+  } 
+  .fakeimg2 span > img {
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .play-icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45vh;
+    width: 100%;
+    top: 0;
+    justify-content: center;
+    z-index: 999;
   }
   
   /* Add a card effect for articles */
@@ -781,4 +806,27 @@ opacity: 1;
 
 .solid {
   color: red;
+}
+.videoStyl{
+  width: 100%;
+  height: 400px;
+  z-index: 999;
+}
+.placeholder-loader-img2{
+  height: 45vh;
+  width: 5vh;
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  border-radius: 50%;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+.views-styl{
+  position: absolute;
+    right: 0.5em;
+    top: 2em;
+    background-color: #fff;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    opacity: 0.9;
 }

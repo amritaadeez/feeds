@@ -11,18 +11,22 @@
 
       </div>
     </div>
-    <div class="container">
-      <div class="row">
+    <div class="container" >
+      <div class="row" *ngIf="settings">
         <div class="leftcolumn">
+          <form class="text-left ng-untouched ng-pristine ng-invalid" role="form" [formGroup]="settingForm"
+                (ngSubmit)="onSubmit(settingForm.value)">
           <div class="card buttons-holder notification-setting">
             <div class="pb-3">
               <h5 style="color: #000000;" class="mb-3">Settings</h5>
+              
               <hr>
-              <div class="row ">
+              <div class="row " >
+                
                 <div class="col-md-12 switch-col">
                   <label>New post</label>
                   <label class="switch">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" [checked]="settings.new_post" formControlName="new_post">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -31,7 +35,7 @@
                 <div class="col-md-12 switch-col">
                   <label>Post you commented on</label>
                   <label class="switch">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" [checked]="settings.post_you_commented_on" formControlName="post_you_commented_on">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -40,7 +44,7 @@
                 <div class="col-md-12 switch-col">
                   <label>Post you liked</label>
                   <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" [checked]="settings.post_you_like" formControlName="post_you_like">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -49,7 +53,7 @@
                 <div class="col-md-12 switch-col">
                   <label>New comments on your post</label>
                   <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" [checked]="settings.new_comments_on_your_post" formControlName="new_comments_on_your_post">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -59,15 +63,17 @@
                 <div class="col-md-12 switch-col">
                   <label>New likes on post</label>
                   <label class="switch">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" [checked]="settings.new_likes_to_your_post">
                     <span class="slider round"></span>
                   </label>
                 </div>
 
               </div>
             </div>
+            <button type="submit" class="btn login-btn">Save </button>
 
           </div>
+          </form>
         </div>
 
       </div>

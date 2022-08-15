@@ -123,6 +123,7 @@ opacity: 1;
 
   .fakeimg > img {
       height: 278px;
+      width: 100%;
   }
 
   @media(max-width: 600px) {
@@ -347,10 +348,11 @@ opacity: 1;
   .card-title img {
     height: 3em;
     width: 3em;
+    border-radius: 50%;
   }
   
   .card-title span {
-    padding-left: 10px;
+    margin-left: 15px;
   }
   
   .card-title span h6 {

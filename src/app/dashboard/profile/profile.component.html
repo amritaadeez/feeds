@@ -13,37 +13,136 @@
     <div class="container">
       <div class="row">
         <div class="leftcolumn">
-          
+          <form class="text-left ng-untouched ng-pristine ng-invalid" role="form" [formGroup]="updateProfileForm"
+                >
             
             <div class="web">
             <div class="row  profile-grid">
               
-              <div class="col-md-12">
-                  <div class="card profile-edit-card">
+              <div class="col-md-12" *ngIf="!spinner">
+                  <div class="card profile-edit-card" *ngIf="!display">
                       <div class="card-img-block">
-                          <img class="img-fluid" src="assets/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.png" alt="Card image cap">
+                          <img class="img-fluid" *ngIf="!dummyImage && avatar" src="{{avatar}}" alt="Card image cap">
+                          <img class="img-fluid" *ngIf="dummyImage || !avatar" src="assets/vuesax-bold-gallery.svg" alt="Card image cap">
                           <span class="profile-cam">
-                              <img class="img-fluid" src="assets/vuesax-bold-camera.svg">
+                            <input type="file" hidden (change)="onFileSelected($event)" accept="image/*" #file>
+                              <!-- <img class="img-fluid" src="assets/vuesax-bold-camera.svg" (click)="file.click()"> -->
+                              <div class="dropdown">
+                                <button class="dropdown dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                  data-bs-toggle="dropdown" aria-expanded="false">
+                                  <img class="pro-icon" src="assets/vuesax-bold-camera.svg">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" (click)="file.click()">Upload Image</a></li>
+                                  <li><a class="dropdown-item" (click)="resetAvtaar()">Remove Image</a></li>
+            
+                                </ul>
+                              </div>
                           </span>
                           
                       </div>
-                      <div class="card-body">
-                         <span class="profile"> <img src="assets/directory/jurica-koletic-7YVZYZeITc8-unsplash-7@2x.png" alt="profile-image" />
+                      <div class="card-body" *ngIf="profileData">
+                         <span class="profile"> 
+                          <img *ngIf="!dummyImage && avatar" src="{{avatar}}" alt="profile-image" />
+                          <img *ngIf="dummyImage || !avatar" src="assets/vuesax-bold-gallery.svg" alt="profile-image" />
                           <span class="profile-card-title">
-                          <h5 class="card-title">John Doe</h5> 
-                          <p>Update your photo and personal details.</p>
+                          <h5 class="card-title" >{{profileData[0]?.value}} ({{userStatus}})</h5> 
+                          <p>{{profileData[1]?.value}}</p>
                       </span>
                       </span>
                           
                           
                           <div class="profile-edit-btn">
-                              <button class="btn btn-cancel">Cancel</button>
-                              <button class="btn btn-proceed">Save</button>
+                            <button class="btn btn-proceed" data-bs-toggle="modal" data-bs-target="#myModal" (click)="changeStatus()" >Change Status</button>
+                            <div class="modal" id="myModal">
+                              <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                              
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                    <p class="modal-title">Select Status</p>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                  </div>
+                              
+                                  <!-- Modal body -->
+                                  <div class="modal-body" *ngIf="!spinner1">
+                                    <ul  style="list-style: none;">
+                                      <li class="list-li" *ngFor="let status of statusArray; let idx = index" (click)="setStatus(status, idx)">{{status}} 
+                                        <i class="fas fa-check" *ngIf=" selectedIndex == idx && selectedIndex != 'i'  && checkTick"></i> </li>
+                                  
+                                    </ul>
+                                    <div class="hr-line">
+                                      <span class="text-overlap">OR</span>
+                                    </div>
+                                    <div>
+                                      <input type="text" class="form-control" placeholder="Custom Status" (change)="setStatus($event.target.value, '4')">
+                                      
+                                    </div>
+                                  </div>
+
+                                  <div class="modal-body" *ngIf="spinner1">
+                                    <ul  style="list-style: none;">
+                                      <li class="list-li placeholder-loader-title" style="margin-bottom: 0.5em;" *ngFor="let status of statusArray; let idx = index" >
+                                        <i class="fas fa-check" *ngIf=" selectedIndex == idx && selectedIndex != 'i'  && checkTick"></i> </li>
+                                  
+                                    </ul>
+                                    <div class="hr-line  placeholder-loader-title">
+                                      <span class="text-overlap "></span>
+                                    </div>
+                                    <div>
+                                      <input type="text" class="form-control placeholder-loader-title" placeholder="" >
+                                      
+                                    </div>
+                                  </div>
+                              
+                                  <!-- Modal footer -->
+                                  <div class="modal-footer" *ngIf="!spinner1">
+                                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-cancel" style="background-color: #2565AF; color: #fff;" (click)="updateStatus()" >Update</button>
+                                  </div>
+                              
+                                </div>
+                              </div>
+                              </div>
                           </div>
                       </div>
+                      
                   </div>
+                  
+                  <div class="card profile-edit-card" *ngIf="display">
+                    <div class="card-img-block">
+                        <img class="img-fluid" src="{{selectImg}}" alt="Card image cap">
+                        <span class="profile-cam">
+                          <input type="file" hidden (change)="onFileSelected($event)" accept="image/*" #file>
+                            <img class="img-fluid" src="assets/vuesax-bold-camera.svg" (click)="file.click()">
+                        </span>
+                        
+                    </div>
+                    <div class="card-body" *ngIf="profileData">
+                       <span class="profile"> <img src="{{selectImg}}" alt="profile-image" />
+                        <span class="profile-card-title">
+                        <h5 class="card-title" >{{profileData[0]?.value}}</h5> 
+                        <p>{{profileData[1]?.value}}</p>
+                    </span>
+                    </span>
+                        
+                        
+                        <div class="profile-edit-btn">
+                            <button class="btn btn-cancel" type="button" (click)="showEdit()">Cancel</button>
+                            <button class="btn btn-proceed" type="submit" (click)="updateAvtaar()">Save</button>
+                        </div>
+                    </div>
+                </div>
                  
                   
+              </div>
+              <div class="col-md-12" *ngIf="spinner">
+                <div class="card profile-edit-card">
+                  
+                <div  class="placeholder-loader"></div>
+                    
+                </div>
+                <div  class="placeholder-loader-img"></div>
               </div>
               
               
@@ -70,34 +169,35 @@
                               <span class="profile-cam">
                                   <img class="img-fluid" src="assets/vuesax-bold-camera.svg">
                               </span>
-                              <h5 class="card-title">John Doe</h5>
+                              <h5 class="card-title">{{profileData}}</h5>
                               <p class="card-text">Update your photo and personal details.</p>
                           </div>
                       </div>
                 </div>                      
                 </div>
               </div>
+              
             <div class="card buttons-holder  mt-4">
               <div class="pb-3">
                   <h5 style="color: #000000;" class="mb-3">Profile</h5>
                   <div class="row form-row">
                       <div class="col-md-6 form-col"> 
                           <label class="pb-3">Name</label>
-                          <input type="text" placeholder="Enter Name here" class="form-control">
+                          <input type="text" placeholder="Enter Name here" disabled class="form-control" formControlName="name">
                       </div>
                       <div class="col-md-6 form-col">
                           <label class="pb-3">Job Title</label>
-                          <input type="text" placeholder="Job Title here" class="form-control">
+                          <input type="text" placeholder="Job Title here" disabled class="form-control" formControlName="jobTITLE">
                        </div>
                       </div>
                        <div class="row">
                       <div class="col-md-6 form-col">
                           <label class="pb-3">Orginaization</label>
-                          <input type="text" placeholder="Enter orginaization" class="form-control">
+                          <input type="text" placeholder="Enter orginaization" disabled class="form-control" formControlName="organization">
                       </div>
                       <div class="col-md-6 form-col">
                           <label class="pb-3">Department</label>
-                          <input type="text" placeholder="Job Department here" class="form-control">
+                          <input type="text" placeholder="Job Department here" disabled class="form-control" formControlName="department">
                       </div>
                   
                   </div>
@@ -105,9 +205,10 @@
                 
           </div>
           <div class="profile-edit-btn mob">
-              <button class="btn btn-cancel">Cancel</button>
-              <button class="btn btn-proceed">Save</button>
+              <button class="btn btn-cancel" type="button">Cancel</button>
+              <button class="btn btn-proceed" type="submit">Save</button>
           </div>
+          </form>
           
             
           

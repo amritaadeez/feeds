@@ -22,35 +22,66 @@ import {
   styleUrls: ['./main-dashboard.component.scss']
 })
 export class MainDashboardComponent implements OnInit {
-allFeedDatas: any
+allFeedDatas: any;
 allCarousels: any 
 loader:Boolean = true
   commentInput: any;
   liked: any;
   loaders: boolean;
   index: any;
-  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {}
+  listArray : string[] = [];
+  sum = 4;
+  direction = "";
+  updateTime: any;
+  allfeedArray: any[];
+  updateTimeComment: any;
+  allcommentArray: any[];
+  mainData: string;
+  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {
+    // this.appendItems();
+  }
 
   ngOnInit(): void {
-   
+ this.allFeedDatas = JSON.parse(localStorage.getItem('allFeeds'))
 this.allFeeds()
 // this.createLike()
    
   }
   allFeeds() {
+    console.log(this.allFeedDatas)
+    if(this.allFeedDatas == null || this.allFeedDatas == undefined || this.allFeedDatas == ''){
     this.loader = true
+    }
+    else{
+      this.loader = false
+    }
+    this.allfeedArray = [];
+    this.allcommentArray = [];
     this.apiService.feedList().subscribe(
       (res:any) => {
         this.loader = false
       console.log(res)
       this.allFeedDatas = res.data
+      localStorage.setItem('allFeeds', JSON.stringify(this.allFeedDatas))
+      // console.log(this.allFeedDatas.length)
       this.allCarousels = res.meta.carousel_items
-      console.log(this.allCarousels)
+      for(let i=0; i <this.allFeedDatas.length; i++){
+      
+
+        this.updateTime = moment.unix(this.allFeedDatas[i].content_time_created).format("MM/DD/YYYY, hh:mm:ss")
+        this.allfeedArray.push(this.updateTime)
+        this.updateTimeComment = moment.unix(this.allFeedDatas[i].last_comment.time).format("MM/DD/YYYY, hh:mm:ss")
+        this.allcommentArray.push(this.updateTimeComment)
+
+      }
+      console.log(this.allfeedArray)
       }, (err:any) => {
         this.loader = false
       }
     );
   }
+
+ 
 
   createLike(id: any, userLike: boolean, index: any) {
     console.log("ssss", id, index)
@@ -121,6 +152,18 @@ this.index = index
         this._snackbar.open("Commented successfully", "Thanks", {
           duration: 3000
         });
+        // this.commentInput = ''
+        this.apiService.feedList().subscribe(
+          (res:any) => {
+            this.loaders = false
+          console.log(res)
+          this.allFeedDatas = res.data
+          this.allCarousels = res.meta.carousel_items
+          console.log(this.allCarousels)
+          }, (err:any) => {
+            this.loaders = false
+          }
+        );
       
       
       }, (error: any) => {

@@ -11,6 +11,9 @@ export class YourContributionComponent implements OnInit {
   id: any;
   loader: boolean;
   feed: any;
+  displayVideo = false;
+  displayImage: boolean;
+  views: any;
 
   constructor(private router: ActivatedRoute, private apiService: ApiserviceService) { }
 
@@ -19,6 +22,7 @@ export class YourContributionComponent implements OnInit {
     console.log(this.id)
 
     this.getFeedDetails()
+    this.getRegisterView()
   }
   getFeedDetails() {
     this.loader = true
@@ -31,5 +35,22 @@ export class YourContributionComponent implements OnInit {
         this.loader = false
       }
     );
+  }
+  getRegisterView() {
+    // this.loader = true
+    this.apiService.registerView(this.id).subscribe(
+      (res:any) => {
+        // this.loader = false
+      console.log(res)
+      this.views = res.data.impressions.text
+      }, (err:any) => {
+        // this.loader = false
+      }
+    );
+  }
+  onPlay(){
+    this.displayVideo= true;
+    // this.displayImage = false; 
+    console.log(this.displayVideo)
   }
 }

@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   redirectUrl: string;
   resetUrl = new BehaviorSubject < any > ('');
-  iotDataGraph = new BehaviorSubject < any > ('');
+  searchData = new BehaviorSubject < any > ('');
+  profilePic = new BehaviorSubject < any > ('');
   
   constructor() { 
 

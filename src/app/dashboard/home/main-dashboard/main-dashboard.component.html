@@ -10,13 +10,28 @@
 
 
   <!-- <div id="carouselExampleIndicators" class="carousel slide container carousel-spacing" data-ride="carousel"> -->
-  <div id="demo" class="carousel slide container carousel-spacing web" data-bs-ride="carousel" *ngIf="allCarousels">
-    <div class="carousel-inner">
+  <div id="demo" class="carousel slide container carousel-spacing web"  data-bs-ride="carousel" *ngIf="allCarousels">
+    <div class="carousel-inner" >
       
-      <div class="carousel-item active" *ngFor="let item of allCarousels">
-        <div class="row">
+      <div class="carousel-item active" >
+        <div class="row" >
 
-          <div class="col-md-4 ">
+          <div class="col-md-4 " *ngFor="let item of allCarousels">
+            <div class="card">
+              <div class="card-body carousel-card-body">
+                <img class="img-card" src="assets/vuesax-bold-gallery.svg">
+                <p class="card-text">{{item.title}} </p>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" >
+        <div class="row" >
+
+          <div class="col-md-4 " *ngFor="let item of allCarousels">
             <div class="card">
               <div class="card-body carousel-card-body">
                 <img class="img-card" src="assets/vuesax-bold-gallery.svg">
@@ -31,21 +46,21 @@
      
 
     </div>
-    <button class="carousel-control-prev web" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <button class="carousel-control-prev web" *ngIf="!loader" type="button" data-bs-target="#demo" data-bs-slide="prev">
       <span class="carousel-prev-icon"> <i class="fa fa-angle-left"></i> </span>
     </button>
-    <button class="carousel-control-next web" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <button class="carousel-control-next web" *ngIf="!loader" type="button" data-bs-target="#demo" data-bs-slide="next">
       <span class="carousel-next-icon"> <i class="fa fa-angle-right"></i></span>
     </button>
   </div>
-  <div id="demo" class="carousel slide container carousel-spacing mob" data-bs-ride="carousel">
-    <div class="carousel-inner">
+  <div id="demo" class="carousel slide container carousel-spacing mob" data-bs-ride="carousel" >
+    <div class="carousel-inner" >
       <div class="carousel-item active" *ngFor="let item of allCarousels">
-        <div class="row">
+        <div class="row" >
 
-          <div class="col-md-12 ">
-            <div class="card">
-              <div class="card-body carousel-card-body">
+          <div class="col-12 " >
+            <div class="card" >
+              <div class="card-body carousel-card-body" >
                 <img class="img-card" src="assets/vuesax-bold-gallery.svg">
                 <p class="card-text">{{item.title}} </p>
 
@@ -55,93 +70,32 @@
           </div>
         </div>
       </div>
-     <div class="carousel-item ">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-note-text.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item ">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-video-play.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row">
-
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-gallery.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-note-text.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item ">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body carousel-card-body">
-                <img class="img-card" src="assets/vuesax-bold-video-play.svg">
-                <p class="card-text">Lorem Ipsum is simply dummy text </p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
 
     </div>
   </div>
   <div class="container" *ngIf="!loader">
+    
     <div class="row" *ngFor="let feed of allFeedDatas; let index = index">
-      <div class="leftcolumn">
+      <div class="leftcolumn" >
 
         <div class="card">
-          <div class="card-title">
-            <img class="image-avatar" src={{feed.author_avatar_url_large}}>
+          <div class="card-title ">
+            <img class="image-avatar" src={{feed.author_avatar_url_large}} *ngIf="feed.author_avatar_url_large">
+            <img class="image-avatar" src='assets/vuesax-bold-gallery.svg' *ngIf="!feed.author_avatar_url_large">
             <div> <span class="user-name"> {{feed.author_name}} </span> <br>
-              <span class="user-timing">{{feed.content_time_created | date}}</span> </div>
+              <span class="user-timing" >{{allfeedArray[index] | date}}</span> </div>
 
           </div>
           <a (click)="changeRoute(feed.id)">
-            <div class="fakeimg"><img src={{feed.cover_image}} class="img-fluid"></div>
+            <div class="fakeimg">
+              
+            <div class=" img-fluid bg-title" style="background-image: url('{{feed.cover_image}}');">
+            <span *ngIf="feed.total_duration"> <p> <i class="fas fa-play-circle" style="color: #fff;"></i> {{feed.total_duration}} sec </p></span> </div>
+
+            </div>
           </a>
           <div class="pt-3">
-            <p><span class="para-heading-home">{{feed.excerpt}}</span></p>
+            <p><span class="para-heading-home">{{feed.title}}</span></p>
             <p class="paragraph" [innerHtml]="feed.description"></p>
           </div>
           <div>
@@ -158,8 +112,9 @@
               style="resize: none;"></textarea> <button type="button" (click)="sendComment(feed.id)" class="input-submit btn"></button>
           </div>
           <div class=" card-title" style="border-radius: 10px; border: 1px solid rgb(243, 237, 237); margin-top:1em; padding: 1em;">
-            <img class="image-avatar" src={{feed.last_comment.profile_image_small}}>
-            <div> <span class="user-name"> {{feed.last_comment.name}} | <span style="color: grey"> {{feed.last_comment.time | date}} </span> </span> <br>
+            <img class="image-avatar" src={{feed.last_comment.profile_image_small}} *ngIf="feed.last_comment.profile_image_small">
+            <img class="image-avatar" src='assets/vuesax-bold-gallery.svg' *ngIf="!feed.last_comment.profile_image_small">
+            <div> <span class="user-name"> {{feed.last_comment.name}} | <span style="color: grey"> {{allcommentArray[index] | date}} </span> </span> <br>
               <span class="user-timing">{{feed.last_comment.text}}</span> </div>
 
           </div>
@@ -167,17 +122,35 @@
 
       </div>
 
-    </div>
+   
+  </div>
+    
     </div>
     <div class="container"  *ngIf="loader">
       <div class="row">
         <div class="leftcolumn">
   
-          <div class="card   placeholder-loader">
-            <div class="card-title">
-  
-  
+          <div class="col-12 right ">
+            
+                    
+            <div class="back-col ">
+              <div class="card back-col ">
+                <div class="card-title">
+                  <div  class="placeholder-loader-img"></div>
+                  <div style="display: flex;">
+                    <span class="user-name placeholder-loader-title"> </span> <br>
+                    <span class=""> </span>
+                  </div>
+                </div>
+                <div class="fakeimg placeholder-loader"></div>
+                <div class="pt-3">
+                  <p class="placeholder-loader-lines"><span class="para-heading-home"></span></p>
+                  <p class="paragraph placeholder-loader-lines"></p>
+                </div>
+               
+              </div>
             </div>
+    
           </div>
   
         </div>
@@ -185,11 +158,27 @@
       <div class="row">
         <div class="leftcolumn">
   
-          <div class="card   placeholder-loader">
-            <div class="card-title">
-  
-  
+          <div class="col-12 right ">
+            
+                    
+            <div class="back-col ">
+              <div class="card back-col ">
+                <div class="card-title">
+                  <div  class="placeholder-loader-img"></div>
+                  <div style="display: flex;">
+                    <span class="user-name placeholder-loader-title"> </span> <br>
+                    <span class=""> </span>
+                  </div>
+                </div>
+                <div class="fakeimg placeholder-loader"></div>
+                <div class="pt-3">
+                  <p class="placeholder-loader-lines"><span class="para-heading-home"></span></p>
+                  <p class="paragraph placeholder-loader-lines"></p>
+                </div>
+               
+              </div>
             </div>
+    
           </div>
   
         </div>
@@ -197,11 +186,27 @@
       <div class="row">
         <div class="leftcolumn">
   
-          <div class="card   placeholder-loader">
-            <div class="card-title">
-  
-  
+          <div class="col-12 right ">
+            
+                    
+            <div class="back-col ">
+              <div class="card back-col ">
+                <div class="card-title">
+                  <div  class="placeholder-loader-img"></div>
+                  <div style="display: flex;">
+                    <span class="user-name placeholder-loader-title"> </span> <br>
+                    <span class=""> </span>
+                  </div>
+                </div>
+                <div class="fakeimg placeholder-loader"></div>
+                <div class="pt-3">
+                  <p class="placeholder-loader-lines"><span class="para-heading-home"></span></p>
+                  <p class="paragraph placeholder-loader-lines"></p>
+                </div>
+               
+              </div>
             </div>
+    
           </div>
   
         </div>

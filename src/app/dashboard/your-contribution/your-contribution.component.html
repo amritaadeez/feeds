@@ -26,22 +26,32 @@
                 </div>
             </div> 
        
-        <div class="container">
+        <div class="container" *ngIf="!loader">
             <div class="row">
                 <div class="leftcolumn">
                     <div class="card">
-                        <div class="card-title">
-                            <img class="image-avatar" src={{feed.author_avatar_url_large}}>
+                        <div class="card-title" >
+                            <img class="image-avatar" *ngIf="feed.author_avatar_url_large"  src="{{feed.author_avatar_url_large}}">
+                            <img class="image-avatar" *ngIf="!feed.author_avatar_url_large"  src="assets/vuesax-bold-gallery.svg">
                             <div> <span class="user-name"> {{feed.author_name}} </span> <br>
                               <span class="user-timing">{{feed.content_time_created | date}}</span> </div>
                 
                           </div>
-                          <div class="fakeimg"><img src={{feed.cover_image}} class="img-fluid"></div>
+                          
+                            <div class="play-icon" *ngIf="!displayVideo" >
+                               <span (click)="onPlay()"><i class="fas fa-play-circle"  *ngIf="feed.content_type == 'voice_post' && !displayVideo "  style="font-size: 33px; color: #fff; cursor: pointer;"></i></span> 
+                               <span class="views-styl" *ngIf="feed.content_type == 'voice_post' && !displayVideo "><i class="fas fa-eye"></i>  {{views || "NA"}}</span>
+                                <div class="fakeimg" >
+                                    <img src={{feed.cover_image}}  class="img-fluid"  >
+                                </div>
+                            </div>
+                        
+                          <div class="fakeimg2" *ngIf="feed.content_type == 'voice_post'&& displayVideo"><video src={{feed.video_url}} type="video/mp4" class="videoStyl" muted controls></video></div>
 
                            
                           <div class="pt-3">
-                            <p><span class="para-heading-home">{{feed.excerpt}}</span></p>
-                            <p class="paragraph">{{feed.description}}</p>
+                            <p><span class="para-heading-home">{{feed.title}}</span></p>
+                            <p class="paragraph" [innerHtml]="feed.description"></p>
                           </div>
                   <div class="input-check">
                     <input type="checkbox" id="myCheck" checked >
@@ -62,6 +72,39 @@
 
             
          
+        </div>
+
+        <div class="container" *ngIf="loader">
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        <div class="card-title" >
+                            <div class="image-avatar placeholder-loader-img" ></div>
+                            <div style="display: flex;"> <span class="user-name placeholder-loader-title"> </span> <br>
+                              </div>
+                
+                          </div>
+                          
+                          <div class="fakeimg2 placeholder-loader"></div>
+
+                           
+                          <div class="pt-3">
+                            <p><span class="para-heading-home placeholder-loader-title"></span></p>
+                            <p class="paragraph placeholder-loader-title" ></p>
+                          </div>
+                  <div class="input-check placeholder-loader-title">
+                    
+                  </div>
+                        <div class="pt-3 your-contri2 placeholder-loader-title">
+                       
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
         </div>
 
     </div>

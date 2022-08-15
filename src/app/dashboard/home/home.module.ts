@@ -6,6 +6,7 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HomeRoutingModule,
     MatSlideToggleModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    InfiniteScrollModule
   ]
 })
 export class HomeModule { }

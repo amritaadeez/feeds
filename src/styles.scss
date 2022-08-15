@@ -24,7 +24,7 @@ h5 {
 }
 
 p {
-    text-align: left;
+    // text-align: left;
     font: normal normal normal 16px/25px Poppins;
     letter-spacing: 0px;
     color: #000000B3;
@@ -61,6 +61,8 @@ input {
 
 .para-help {
     color: #010101;
+    text-align: center;
+    width: 100%;
 }
 
 span.logo {
@@ -644,7 +646,7 @@ top: 38%;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: 2rem;
+    border-radius: 1rem;
     outline: 0;
 }
 .modal-body {
@@ -813,6 +815,14 @@ float:left;
 width:100%;
 height:200px;
 overflow:hidden;
+display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    img{
+        width: 100%;
+        height: inherit;
+    }
 }
 .profile-edit-card .card-body{
 position:relative;
@@ -831,6 +841,8 @@ border: 5px solid #fff;
 -webkit-transform: translate(-50%, 0%);
 transform: translate(-50%, 0%);
 border-radius: 50%;
+height: 120px !important;
+width: 120px !important;
 }
 .profile-edit-card h5{
 font: normal normal 600 16px/21px Poppins;
@@ -868,6 +880,7 @@ color: #FFFFFF;
 display: flex;
 float: right;
 justify-content: space-between;
+height: 5vh;
 }
 .profile-edit-btn .btn-cancel{
 color: #5D5D5D;
@@ -918,9 +931,12 @@ top: 9em;
 right: 2em;
 background-color: #000000;
 padding: 5px;
-opacity: 0.5;
+// opacity: 0.5;
 border-radius: 5px;
 cursor: pointer;
+ img{
+    opacity: 0.5;
+ }
 }
 .buttons-holder .form-row{
 padding: 1rem 0;
@@ -953,6 +969,9 @@ float:left;
 width:100%;
 height:150px;
 overflow:hidden;
+display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .profile-card-mob .card-body{
 position:relative;
@@ -1265,4 +1284,46 @@ color: #FFFFFF;
 height: 88vh !important;
 }
 
-
+.placeholder-loader-title{
+    height: 5vh;
+    width: 17vw;
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+.placeholder-loader {
+    height: 50vh;
+    
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+  
+ 
+.placeholder-loader-lines{
+    height: 3vh;
+    width: 100%;
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+.placeholder-loader-img{
+    height: 5vh;
+    width: 5vh;
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 50%;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+@keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }

@@ -16,101 +16,90 @@
             <div class="card buttons-holder">
               <div class="pb-3">
                 <p style="color: #000000;">Search Results</p>
-                <div style="display: flex;"> <a routerLink="/dashboard/search-contact"> <button
-                      class="btn post-btn">Contacts</button></a>
-                  <a routerLink="/dashboard/search-post"> <button  class="btn contacts-btn">Post</button> </a>
+                <div style="display: flex;">  <button
+                      class="btn post-btn" (click)="navContact()">Contacts</button>
+                  <a> <button  class="btn contacts-btn">Post</button> </a>
                 </div>
               </div>
-              <div class="table-responsive">
+              <div class="table-responsive" *ngIf="details?.length > 0 && !loader">
                 <div class="row row-contents">
-                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 left ">
+                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 left " *ngFor="let detail of details; let idx = index">
                     <div class="back-col">
                       <div class="card back-col">
                         <div class="card-title">
-                          <img src="assets/profile-image.png">
+                          <img src={{detail.author_avatar_url_large}} *ngIf="detail.author_avatar_url_large">
+                          <img src='assets/vuesax-bold-gallery.svg' *ngIf="!detail.author_avatar_url_large">
                           <div>
-                            <span class="user-name"> Sai Parikshith </span> <br>
-                            <span class="user-timing"> 2 days ago</span>
+                            <span class="user-name"> {{detail.author_name}} </span> <br>
+                            <span class="user-timing"> {{allTimeArray[idx] | date: 'mediumDate'}}</span>
                           </div>
                         </div>
-                        <div class="fakeimg"><img src="assets/back-1.png"
+                        <div class="fakeimg"><img src="{{detail.cover_large}}"
                             class="img-fluid"></div>
                         <div class="pt-3">
-                          <p style="margin: 0px !important"><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span></p>
-                          <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                          <p style="margin: 0px !important"><span class="para-heading-home">{{detail.title}}</span></p>
+                          <p class="paragraph" [innerHtml]="detail.description"></p>
                         </div>
                        
                       </div>
                     </div>
 
                   </div>
-                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 right">
-                    <div >
-                      <div class="card back-col">
-                        <div class="card-title">
-                          <img src="assets/profile-image.png">
-                          <div>
-                            <span class="user-name"> Sai Ganesh </span> <br>
-                            <span class="user-timing">2 days ago</span>
-                          </div>
-                        </div>
-                        <div class="fakeimg"><img src="assets/back-3.png"
-                            class="img-fluid"></div>
-                        <div class="pt-3">
-                          <p style="margin: 0px !important"><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span></p>
-                          <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
-                       
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 left ">
-                    <div class="back-col">
-                      <div class="card back-col">
-                        <div class="card-title">
-                          <img src="assets/profile-image.png">
-                          <div>
-                            <span class="user-name"> Sai Govardhan J</span> <br>
-                            <span class="user-timing"> 2 days ago</span>
-                          </div>
-                        </div>
-                        <div class="fakeimg"><img src="assets/back-2.png"
-                            class="img-fluid"></div>
-                        <div class="pt-3">
-                          <p style="margin: 0px !important"><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span></p>
-                          <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
-                       
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 right">
-                    <div >
-                      <div class="card back-col">
-                        <div class="card-title">
-                          <img src="assets/profile-image.png">
-                          <div>
-                            <span class="user-name"> Saiamritesh</span> <br>
-                            <span class="user-timing"> 2 days ago</span>
-                          </div>
-                        </div>
-                        <div class="fakeimg"><img src="assets/back-4.png"
-                            class="img-fluid"></div>
-                        <div class="pt-3">
-                          <p style="margin: 0px !important"><span class="para-heading-home">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span></p>
-                          <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
-                       
-                      </div>
-                    </div>
-
-                  </div>
+                  
                 
                 </div>
               </div>
-
+              <div class="table-responsive" *ngIf="details?.length == 0 && !loader">
+                No Search Data Found
+              </div>
+              <div class="table-responsive" *ngIf="loader">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 left ">
+            
+                    
+                    <div class="back-col ">
+                      <div class="card back-col ">
+                        <div class="card-title">
+                          <div  class="placeholder-loader-img"></div>
+                          <div style="display: flex;">
+                            <span class="user-name placeholder-loader-title"> </span> <br>
+                            <span class=""> </span>
+                          </div>
+                        </div>
+                        <div class="fakeimg placeholder-loader"></div>
+                        <div class="pt-3">
+                          <p class="placeholder-loader-lines"><span class="para-heading-home"></span></p>
+                          <p class="paragraph placeholder-loader-lines"></p>
+                        </div>
+                       
+                      </div>
+                    </div>
+            
+                  </div>
+                  <div class="col-lg-6 col-sm-12 col-md-6 col-12 col-xl-6 right ">
+            
+                    
+                    <div class="back-col ">
+                      <div class="card back-col ">
+                        <div class="card-title">
+                          <div  class="placeholder-loader-img"></div>
+                          <div style="display: flex;">
+                            <span class="user-name placeholder-loader-title"> </span> <br>
+                            <span class=""> </span>
+                          </div>
+                        </div>
+                        <div class="fakeimg placeholder-loader"></div>
+                        <div class="pt-3">
+                          <p class="placeholder-loader-lines"><span class="para-heading-home"></span></p>
+                          <p class="paragraph placeholder-loader-lines"></p>
+                        </div>
+                       
+                      </div>
+                    </div>
+            
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>

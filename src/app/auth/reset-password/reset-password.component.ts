@@ -16,6 +16,7 @@ export class ResetPasswordComponent implements OnInit {
   spinner: boolean;
   submitted: boolean;
   resetLink: any;
+  details: any;
 
   constructor(private apiService: ApiserviceService, private authService: AuthService,  private _snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
@@ -45,7 +46,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   ngOnInit(){
-  
+  this.getDetails()
   }
   
 
@@ -83,6 +84,17 @@ export class ResetPasswordComponent implements OnInit {
         }
     }
 
+  }
+
+  getDetails() {
+    this.apiService.needHelp().subscribe(
+      (res: any) => {
+        console.log(res)
+        this.details = res.data
+      }, (err: any) => {
+        console.log(err)
+      }
+    );
   }
 
 }

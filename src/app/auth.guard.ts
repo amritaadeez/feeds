@@ -21,8 +21,19 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable < boolean > | Promise < boolean > | boolean {
-    const url: string = state.url;  
+    const url: string = state.url; 
+    console.log(url) 
+console.log(url.includes('search-post'))
+localStorage.setItem('URL', url)
+    if(url.includes('search-')){
+    }else{
+    localStorage.removeItem('searchData')
+    this.authService.searchData.next('')
+
+    }
+    
     return this.checkLogin(url);
+
   }
 
   checkLogin(url: string): boolean {

@@ -55,7 +55,7 @@
             <div class="dropdown">
               <button class="dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <img class="pro-icon" src="assets/profile-image.png"> </button>
+                <img class="pro-icon" src={{avatar}}> </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" routerLink="/dashboard/home/profile">Edit Profile</a></li>
                 <li><a class="dropdown-item" routerLink="/dashboard/notification">Notification Setting</a></li>
@@ -96,14 +96,16 @@
           <div class="col-lg-4 col-md-3 col-xl-4 col-sm-3 col-3">
             <div class="third-sec">
               <div class="search-div">
-                <input class="form-control search-input-nav" (keydown)="charCount($event.target.value)" placeholder="search"> <i
-                  class="fa fa-search"></i>
+                <input class="form-control search-input-nav" (change)="charCount($event.target.value)" value="{{filter}}" [(ngModel)]="filter"  placeholder="search"> <i
+                  class="fa fa-search" ></i>
               </div>
               <div class="profile-div">
                 <div class="dropdown">
                   <button class="dropdown dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="pro-icon" src={{avatar.data.avatar}}> <i class="fa-solid fa-angle-down down-icon"></i>
+                    <img class="pro-icon" src={{avatar}} *ngIf="avatar"> 
+                    <img class="pro-icon" src='assets/vuesax-bold-gallery.svg' *ngIf="!avatar"> 
+                    <i class="fa-solid fa-angle-down down-icon"></i>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" routerLink="/dashboard/home/profile">Edit Profile</a></li>

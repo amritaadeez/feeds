@@ -11,6 +11,7 @@ import { ContributionSubmitComponent } from './contribution-submit/contribution-
 import { DirectoryGridComponent } from './directory-grid/directory-grid.component';
 import { DirectoryProfileComponent } from './directory-profile/directory-profile.component';
 import { GroupComponent } from './group/group.component';
+import { MainDashboardComponent } from './home/main-dashboard/main-dashboard.component';
 import { NotificationSettingComponent } from './notification-setting/notification-setting.component';
 import { PostSearchComponent } from './post-search/post-search.component';
 import { RecordContributionTwoComponent } from './record-contribution-two/record-contribution-two.component';
@@ -79,17 +80,17 @@ const routes: Routes = [{
       component: RecordContributionTwoComponent,
     },
     {
-      path: "direct-prof",
+      path: "direct-prof/:id",
       canActivate: [AuthGuard],
       component: DirectoryProfileComponent,
     },
     {
-      path: "search-contact",
+      path: "search-contact/:id",
       canActivate: [AuthGuard],
       component: ContactSearchComponent,
     },
     {
-      path: "search-post",
+      path: "search-post/:id",
       canActivate: [AuthGuard],
       component: PostSearchComponent,
     },
@@ -106,7 +107,7 @@ const routes: Routes = [{
     {
       path: "**",
       canActivate: [AuthGuard],
-      component: PageNotFoundComponent,
+      component: MainDashboardComponent,
     },
   ],
 }, ];
